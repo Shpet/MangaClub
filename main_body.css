@@ -1,0 +1,21 @@
+.carousel-item{
+    box-shadow: 0 0 0.5em .3em #343a40 inset;
+    padding: 1em;
+}
+.carousel-item a{
+    padding: 0.3em 2em;
+}
+.carousel-item a img{
+    height: 10em;
+    padding: 0.25em;
+    background-color: #343a40;
+    border: 0.15em #343a40 outset;
+    border-radius: 1em;
+}
+
+
+@media(max-width: 920px){
+    #recently_added{
+        display: none;
+    }
+}

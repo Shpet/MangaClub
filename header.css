@@ -4,6 +4,14 @@ html,body {
 body {
     display: flex;
     flex-direction: column;
+    background-color: #6c757d;
+}
+a{
+    color: whitesmoke;
+}
+a:hover{
+    color: lightgray;
+    text-decoration: none;
 }
 footer{
     color: #c2c2c2;
@@ -28,8 +36,8 @@ footer a{
 .search_inp:focus{
     margin-right: -41px ;
     padding-right: 41px;
-    -webkit-box-shadow: 0 0 1em #fff3cd;
-    -moz-box-shadow: 0 0 1em #fff3cd;
+    -webkit-box-shadow: 0 0 1em #34ce57;
+    -moz-box-shadow: 0 0 1em #34ce57;
     box-shadow: 0 0 1em #34ce57;
 }
 .collapse{
