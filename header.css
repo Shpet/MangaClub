@@ -11,7 +11,7 @@ footer{
 footer a{
     color: #c2c2c2;
     font-size: 2em;
-    padding: 0.5em;
+    padding: 0.5em 0.5em 0  0.5em;
 }
 .content {
     text-align: justify;
