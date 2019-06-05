@@ -1,9 +1,15 @@
+.content {
+    text-align: justify;
+    padding: 5em;
+    flex-grow: 1;
+}
 .carousel-item{
     box-shadow: 0 0 0.5em .3em #343a40 inset;
     padding: 1em;
+
 }
 .carousel-item a{
-    padding: 0.3em 2em;
+    padding: 0.3em 1.7em;
 }
 .carousel-item a img{
     height: 10em;
@@ -12,8 +18,36 @@
     border: 0.15em #343a40 outset;
     border-radius: 1em;
 }
+#scroll_up{
+    display: block;
+    position: fixed;
+    height: 100%;
+    width: 4.7em;
+    left: 0;
+    background-color: rgba(108, 117, 125, 0);
+    color: rgba(0,0,0, 0.2);
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -ms-transition: .2s;
+    -o-transition: .2s;
+    transition: .2s;
+}
+#scroll_up:hover{
+    background-color: rgba(255, 255, 255, 0.05);
+    color: rgba(0,0,0, 0.4);
+}
+#scroll_up span{
+    position: absolute;
+    bottom: 1.2em;
+    left: 0.25em;
+    font-size: 3em;
+}
 
-
+@media(max-width: 1375px) {
+    .carousel-item a{
+        padding: 0.3em 5em;
+    }
+}
 @media(max-width: 920px){
     #recently_added{
         display: none;
