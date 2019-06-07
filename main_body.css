@@ -21,6 +21,10 @@
     border: 0.15em #343a40 outset;
     border-radius: 1em;
 }
+.carousel-item a img:hover {
+    transform: scale(1.1, 1.1);
+    transition: 0.5s;
+}
 
 #scroll_up {
     display: none;
@@ -48,8 +52,11 @@
     left: 0.25em;
     font-size: 3em;
 }
+.col-md-4{
+    min-width: 288px;
+}
 .col-md-4 .mb-4{
-    background-color: #5b656d;
+    background-color: #343a40;
     border-bottom-left-radius: 3em;
     border-bottom-right-radius: 3em;
     border: 3px inset black;
@@ -57,12 +64,14 @@
     -moz-box-shadow: 0.5em 0.5em 2em 3em white;
     box-shadow: 0 0 .5em 0.3em darkslategray;
     color: #efefef;
-    width: 320px;
+}
+.col-md-4 .mb-4 .btn{
+    border-radius: 1em;
 }
 small{
     font-size: 1em;
-    font-weight: 700;
-    color: rgb(255, 0, 0);
+    font-weight: 600;
+    color: #e2dc52;
 }
 
 
