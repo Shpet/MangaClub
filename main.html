@@ -49,11 +49,11 @@
                     <a href="#" class="nav-link btn btn-secondary dropdown-toggle" id="dropdownAccount"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Аккаунт</a>
                     <div class="dropdown-menu" aria-labelledby="dropdownAccount">
-                        <button type="button" data-toggle="modal" data-target="signIn"
+                        <button type="button" data-toggle="modal" data-target="#signIn"
                                 class="btn btn-outline-info w-100">Войти
                         </button>
                         <div class="dropdown-divider"></div>
-                        <button type="button" data-toggle="modal" data-target="signUp"
+                        <button type="button" data-toggle="modal" data-target="#signUp"
                                 class="btn btn-outline-secondary w-100">Регистрация
                         </button>
                     </div>
@@ -67,6 +67,103 @@
             </div>
         </div>
     </nav>
+
+    //Sign in
+    <div class="modal fade" id="signIn">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Вход</h5>
+                    <button class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="#" method="post">
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="row p-3">
+                                    <label for="login">Логин:</label>
+                                </div>
+                                <div class="row p-3">
+                                    <label for="pass">Пароль:</label>
+                                </div>
+                            </div>
+                            <div class="col-9">
+                                <div class="row p-3">
+                                    <input class="w-100" autofocus id="login" type="text">
+                                </div>
+                                <div class="row p-3">
+                                    <input class="w-100" id="pass" type="password">
+                                </div>
+                                <div class="row p-3">
+                                    <button class="btn btn-info w-100">Войти</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    //Sign up
+    <div class="modal fade" id="signUp">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Регистрация</h5>
+                    <button class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="#" method="post">
+                        <div class="row">
+                            <div class="col-5">
+                                <div class="row p-3">
+                                    <label for="email">Email:</label>
+                                </div>
+                                <div class="row p-3">
+                                    <label for="nick">Nickname:</label>
+                                </div>
+                                <div class="row p-3">
+                                    <label for="pass_registr">Пароль:</label>
+                                </div>
+                                <div class="row p-3">
+                                    <label for="pass_repeat">Повторите пароль:</label>
+                                </div>
+                                <div class="row p-3">
+                                    <label for="birthday">Дата рождения:</label>
+                                </div>
+                            </div>
+                            <div class="col-7">
+                                <div class="row p-3">
+                                    <input class="w-100" autofocus id="email" type="email">
+                                </div>
+                                <div class="row p-3">
+                                    <input class="w-100" id="nick" type="text">
+                                </div>
+                                <div class="row p-3">
+                                    <input class="w-100" id="pass_registr" type="password">
+                                </div>
+                                <div class="row p-3">
+                                    <input class="w-100" id="pass_repeat" type="password">
+                                </div>
+                                <div class="row p-3">
+                                    <input class="w-100" id="birthday" type="date">
+                                </div>
+                                <div class="row p-3">
+                                    <button class="btn btn-info w-100">Зарегистрироваться</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </header>
 
 <div class="content">
@@ -221,7 +318,6 @@
         </div>
     </article>
 </div>
-
 
 
 <a href="#" id="scroll_up"><span><i class="fas fa-arrow-circle-up"></i></span></a>
