@@ -1,5 +1,6 @@
 <?php
+	//запрос => класс/метод
 	return array(
-		'new' => 'new/index',
-		'book' => 'book/list',
+		'book' => 'Book/list',
+		'user' => 'User/profile',
 	);
