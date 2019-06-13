@@ -1,0 +1,111 @@
+.modal-body input:focus{
+    -webkit-box-shadow: 0 0 1.2em #34ce57;
+    -moz-box-shadow: 0 0 1.2em #34ce57;
+    box-shadow: 0 0 1.2em #34ce57;
+}
+.modal-body input{
+    border-radius: 0.3em;
+}
+.content {
+    text-align: justify;
+    padding: 5em;
+    flex-grow: 1;
+}
+
+.carousel-item {
+    box-shadow: 0 0 0.5em .3em #343a40 inset;
+    padding: 1em;
+}
+
+.carousel-item a {
+    margin: 0.3em 1.7em;
+}
+
+.carousel-item a img {
+    height: 10em;
+    padding: 0.25em;
+    background-color: #343a40;
+    border: 0.15em #343a40 outset;
+    border-radius: 1em;
+}
+.carousel-item a img:hover {
+    transform: scale(1.1, 1.1);
+    transition: 0.5s;
+}
+
+#scroll_up {
+    display: none;
+    position: fixed;
+    height: 100%;
+    width: 4.7em;
+    left: 0;
+    background-color: rgba(108, 117, 125, 0);
+    color: rgba(0, 0, 0, 0.2);
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -ms-transition: .2s;
+    -o-transition: .2s;
+    transition: .2s;
+}
+
+#scroll_up:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: rgba(0, 0, 0, 0.4);
+}
+
+#scroll_up span {
+    position: absolute;
+    bottom: 1.2em;
+    left: 0.25em;
+    font-size: 3em;
+}
+.col-md-4{
+    min-width: 288px;
+}
+.col-md-4 .mb-4{
+    background-color: #343a40;
+    border-bottom-left-radius: 3em;
+    border-bottom-right-radius: 3em;
+    border: 3px inset black;
+    -webkit-box-shadow: 0.5em 0.5em 2em 3em white;
+    -moz-box-shadow: 0.5em 0.5em 2em 3em white;
+    box-shadow: 0 0 .5em 0.3em darkslategray;
+    color: #efefef;
+}
+.col-md-4 .mb-4 .btn:first-child{
+    border-bottom-left-radius: 1em;
+    border-top-left-radius: 1em;
+}
+.col-md-4 .mb-4 .btn:last-child{
+    border-bottom-right-radius: 1em;
+    border-top-right-radius: 1em;
+}
+small{
+    font-size: 1em;
+    font-weight: 600;
+    color: #e2dc52;
+}
+
+
+@media(max-width: 1370px) {
+    .carousel-item a:last-child{
+        display: none;
+    }
+
+}
+@media(max-width: 1230px) {
+    .carousel-item a:nth-child(6){
+        display: none;
+    }
+}
+@media(max-width: 1110px) {
+    .carousel-item a:nth-child(5){
+        display: none;
+    }
+}
+
+@media (max-width: 920px) {
+    #recently_added {
+        display: none;
+    }
+}

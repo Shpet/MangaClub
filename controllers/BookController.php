@@ -11,8 +11,7 @@
 	{
 		public function actionNewBook()
 		{
-			echo 'Book controller actionNewBook';
-			return true;
+
 		}
 
 		public function actionPopularBook()
@@ -23,13 +22,16 @@
 
 		public function actionAllBook()
 		{
-			echo 'Book controller actionAllBook';
+			$bookList = Book::getBooksList();
+
+			echo'<pre>';
+			print_r($bookList);
+			echo'</pre>';
 			return true;
 		}
 
-		public function actionBookIndex($category, $id)
+		public function actionBookIndex($id)
 		{
-			$bookList = array();
 			$bookList = Book::getBookById($id);
 
 			echo '<pre>';

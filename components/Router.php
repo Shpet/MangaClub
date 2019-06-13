@@ -30,7 +30,6 @@
 				{
 
 					$internalRoute = preg_replace("~^$uriPattern$~", $path, $uri);
-					echo "<br>" . $internalRoute . "<br>";
 
 					//разделить контроллер, экшн и параметры
 					$segments = explode('/', $internalRoute);
@@ -60,6 +59,5 @@
 
 				}
 			}
-			echo '<br><br>okey<br><br>';
 		}
 	}
