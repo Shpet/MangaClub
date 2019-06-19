@@ -80,4 +80,35 @@
 			}
 			return $booksList;
 		}
+
+		public static function getPopularBook(){
+			$db = Db::getConnection();
+			$booklist = array();
+
+			//запрос
+			$result = $db->query('SELECT id_book, name_book, name_genre, b_rating, b_path_logo_big
+ 									from book 
+ 									JOIN book_genre ON book.id_book = book_genre.id_book_bg 
+ 									JOIN genre on book_genre.id_genre_bg = genre.id_genre
+									ORDER by b_rating DESC');
+
+			//запись результатов
+			$i = 0;
+			while($row = $result->fetch()){
+				if($i > 0 && $row['id_book'] == $booklist[$i-1]['id_book']){
+					$booklist[$i-1]['name_genre'] = $booklist[$i-1]['name_genre'].', '.$row['name_genre'];
+					continue;
+				}
+				$booklist[$i]['id_book'] = $row['id_book'];
+				$booklist[$i]['name_book'] = $row['name_book'];
+				$booklist[$i]['name_genre'] = $row['name_genre'];
+				$booklist[$i]['b_rating'] = $row['b_rating'];
+				$booklist[$i]['b_path_logo_big'] = $row['b_path_logo_big'];
+				$i++;
+				if($i > 5){
+					break;
+				}
+			}
+			return $booklist;
+		}
 	}

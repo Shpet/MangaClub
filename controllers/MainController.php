@@ -10,14 +10,25 @@
 	class MainController
 	{
 		public function actionMainPage(){
-
-			$newBook = array();
 			$newBook = BOOk::getNewBooks();
+			$popularBook = BOOK::getPopularBook();
+
 			require_once (ROOT.'/view/page/main.php');
 
 			return true;
 		}
-		public function actionNewBook(){
+		public function actionTest(){
+			$test = BOOK::getPopularBook();
+
+			echo '<pre>';
+			print_r($test);
+			echo '</pre>';
+		}
+
+		public function actionNewBookPage(){
+
+
+			require_once ROOT.'/view/page/newBook.php';
 
 			return true;
 		}

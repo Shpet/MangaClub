@@ -1,0 +1,12 @@
+.col-1,.col-9{
+    border: 2px solid black;
+    border-bottom: none;
+    padding: 0.3em;
+}
+.col-1{
+    border-right: none;
+}
+
+.row:last-child .col-1,.row:last-child .col-9{
+    border-bottom: 2px solid black;
+}
