@@ -12,6 +12,11 @@
 		public function actionNewBook()
 		{
 
+			$newBook = BOOk::getNewBooks();
+
+			require_once (ROOT.'/view/page/newBook.php');
+
+			return true;
 		}
 
 		public function actionPopularBook()

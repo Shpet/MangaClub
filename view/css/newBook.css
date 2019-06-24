@@ -1,12 +1,23 @@
-.col-1,.col-9{
-    border: 2px solid black;
-    border-bottom: none;
-    padding: 0.3em;
+.row{
+
 }
-.col-1{
-    border-right: none;
+.col-1,.col-9{
+    padding: 0 0.3em 0.7em 0.5em;
+    margin: 0.8em 0;
+    border-bottom: 1px solid  #343a40;
+}
+.col-1 img{
+    -webkit-box-shadow:  0 0 .5em .1em black;
+    -moz-box-shadow:  0 0 .5em.1em  black;
+    box-shadow:  0 0 .5em .1em black;
+}
+.col-9{
+    overflow: hidden;
+
+    padding-left: 0.3em;
+}
+.col-9{
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
-.row:last-child .col-1,.row:last-child .col-9{
-    border-bottom: 2px solid black;
-}

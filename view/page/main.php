@@ -9,7 +9,7 @@ include ROOT.'/view/layouts/header.php';
 		<div id="recently_added" class="carousel slide" data-interval="7000" data-ride="carousel">
 			<div class="carousel-inner">
 				<div class="carousel-item text-center active">
-					<a href="#">
+					<a href="/newBook">
 						<img src="view/img/preview/text.jpg" alt="Akame Ga Kill" class="d-inline-flex">
 					</a>
 

@@ -11,12 +11,20 @@
 <link rel="stylesheet" href="view/css/newBook.css">
 <div class="content" >
 	<div class="container-fluid">
+		<?php
+			foreach($newBook as $item):
+		?>
 		<div class="row">
-			<div class="col-1"><img src="view/img/preview/Akame.jpg" alt="1" width="100"></div>
-			<div class="col-9"><p class="text-uppercase h6">name</p>
-				Genre: Lorem ipsum dolor sit amet.<br/>
-				Descritpion: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, cumque delectus explicabo harum nemo placeat quibusdam rerum sit velit voluptatem? Alias, atque culpa dolores harum inventore, ipsum itaque natus nemo numquam provident quidem repellat veritatis, voluptates? Aperiam odio sint sit ut. Accusantium, animi aspernatur autem blanditiis, consequatur deleniti dolo.</div>
+			<div class="col-1"><img src=<?=$item['b_path_logo'] ?> alt="1" width="100"></div>
+			<div class="col-9">
+				<p class="text-uppercase h5"><?=$item['name_book'] ?></p>
+				<b>Жанр:</b> <?=$item['name_genre']?>
+				<br>
+				<span><b>Описание:</b> <?=$item['b_description'] ?></span>
+			</div>
 		</div>
+
+		<?php endforeach; ?>
 	</div>
 
 </div>

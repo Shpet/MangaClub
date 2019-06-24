@@ -59,23 +59,26 @@
 			$booksList = array();
 
 			//запрос к бд
-			$result = $db->query('SELECT * '.
-								'FROM book '.
-								'ORDER BY id_book DESC '.
-								'LIMIT 12');
+			$result = $db->query('SELECT id_book, name_book, b_description, b_path_logo, b_rating, name_genre
+										  FROM book
+								 		  JOIN book_genre ON book.id_book = book_genre.id_book_bg 
+ 										  JOIN genre on book_genre.id_genre_bg = genre.id_genre
+										  ORDER BY book.id_book DESC ');
 
 			//запись результатов запроса
 			$i =0;
 			while($row = $result->fetch()){
+				if($i > 0 && $row['id_book'] == $booksList[$i-1]['id_book']){
+					$booksList[$i-1]['name_genre'] = $booksList[$i-1]['name_genre'].', '.$row['name_genre'];
+					continue;
+				}
 				$booksList[$i]['id_book'] = $row['id_book'];
 				$booksList[$i]['name_book'] = $row['name_book'];
-				$booksList[$i]['author'] = $row['author'];
-				$booksList[$i]['ongoing'] = $row['ongoing'];
 				$booksList[$i]['b_description'] = $row['b_description'];
 				$booksList[$i]['b_path_logo'] = $row['b_path_logo'];
-				$booksList[$i]['b_path_content'] = $row['b_path_content'];
-				$booksList[$i]['b_year'] = $row['b_year'];
 				$booksList[$i]['b_rating'] = $row['b_rating'];
+				$booksList[$i]['name_genre'] = $row['name_genre'];
+
 				$i++;
 			}
 			return $booksList;

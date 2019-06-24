@@ -17,19 +17,4 @@
 
 			return true;
 		}
-		public function actionTest(){
-			$test = BOOK::getPopularBook();
-
-			echo '<pre>';
-			print_r($test);
-			echo '</pre>';
-		}
-
-		public function actionNewBookPage(){
-
-
-			require_once ROOT.'/view/page/newBook.php';
-
-			return true;
-		}
 	}
