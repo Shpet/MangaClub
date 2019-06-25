@@ -1,5 +1,8 @@
-.row{
-
+.col-9 a{
+    color: #212529;
+}
+.col-9 a:hover{
+    color: #3e4448;
 }
 .col-1,.col-9{
     padding: 0 0.3em 0.7em 0.5em;
@@ -19,5 +22,10 @@
 .col-9{
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+.col-9 p.text-right{
+    font-size: 1em;
+    font-weight: 600;
+    color: #e2dc52;
 }
 

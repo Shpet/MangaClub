@@ -59,7 +59,7 @@
 			$booksList = array();
 
 			//запрос к бд
-			$result = $db->query('SELECT id_book, name_book, b_description, b_path_logo, b_rating, name_genre
+			$result = $db->query('SELECT id_book, name_book, author, b_description, b_path_logo,b_path_logo_big, b_rating, name_genre
 										  FROM book
 								 		  JOIN book_genre ON book.id_book = book_genre.id_book_bg 
  										  JOIN genre on book_genre.id_genre_bg = genre.id_genre
@@ -74,8 +74,10 @@
 				}
 				$booksList[$i]['id_book'] = $row['id_book'];
 				$booksList[$i]['name_book'] = $row['name_book'];
+				$booksList[$i]['author'] = $row['author'];
 				$booksList[$i]['b_description'] = $row['b_description'];
 				$booksList[$i]['b_path_logo'] = $row['b_path_logo'];
+				$booksList[$i]['b_path_logo_big'] = $row['b_path_logo_big'];
 				$booksList[$i]['b_rating'] = $row['b_rating'];
 				$booksList[$i]['name_genre'] = $row['name_genre'];
 

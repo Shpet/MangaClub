@@ -37,11 +37,9 @@
 
 		public function actionBookIndex($id)
 		{
-			$bookList = Book::getBookById($id);
+//			$bookList = Book::getBookById($id);
 
-			echo '<pre>';
-			print_r($bookList);
-			echo '</pre>';
+			require_once (ROOT.'/view/page/about.php');
 
 			return true;
 		}

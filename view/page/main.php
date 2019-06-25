@@ -27,7 +27,8 @@ include ROOT.'/view/layouts/header.php';
 							$count++;
 							if($count > 5)
 							{
-								for($i = $count; $i < count($newBook); $i++)
+								// 12 = 2 слайда
+								for($i = $count; $i < 12; $i++)
 								{
 									$newBook2[$i] = $newBook[$i];
 								}
@@ -79,7 +80,7 @@ include ROOT.'/view/layouts/header.php';
 								<div class="d-flex justify-content-between">
 									<div class="btn-group">
 										<a class="btn btn-outline-light">Читать</a>
-										<a class="btn btn-outline-light">Подробнее</a>
+										<a href="book/<?=$item['id_book'] ?>" class="btn btn-outline-light">Подробнее</a>
 									</div>
 									<small>Рейтинг: <?=$item['b_rating']?></small>
 								</div>

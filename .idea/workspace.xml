@@ -2,12 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bbb42439-1587-429d-a541-f48a710fcf4d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/view/page/aboutBook.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/BookController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/BookController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/MainController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/bootstrap4/css/bootstrap-grid.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/framework/bootstrap4/css/bootstrap-grid.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/bootstrap4/css/bootstrap-grid.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/framework/bootstrap4/css/bootstrap-grid.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/bootstrap4/css/bootstrap-grid.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/framework/bootstrap4/css/bootstrap-grid.min.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/bootstrap4/css/bootstrap-reboot.css" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/framework/bootstrap4/css/bootstrap-reboot.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/bootstrap4/css/bootstrap-reboot.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/framework/bootstrap4/css/bootstrap-reboot.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/bootstrap4/css/bootstrap-reboot.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/framework/bootstrap4/css/bootstrap-reboot.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/bootstrap4/css/bootstrap-reboot.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/framework/bootstrap4/css/bootstrap-reboot.min.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/bootstrap4/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/framework/bootstrap4/css/bootstrap.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/bootstrap4/css/bootstrap.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/framework/bootstrap4/css/bootstrap.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/bootstrap4/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/framework/bootstrap4/css/bootstrap.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/bootstrap4/css/bootstrap.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/framework/bootstrap4/css/bootstrap.min.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/bootstrap4/js/bootstrap.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/framework/bootstrap4/js/bootstrap.bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/bootstrap4/js/bootstrap.bundle.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/framework/bootstrap4/js/bootstrap.bundle.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/bootstrap4/js/bootstrap.bundle.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/framework/bootstrap4/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/bootstrap4/js/bootstrap.bundle.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/framework/bootstrap4/js/bootstrap.bundle.min.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/bootstrap4/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/framework/bootstrap4/js/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/bootstrap4/js/bootstrap.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/framework/bootstrap4/js/bootstrap.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/bootstrap4/js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/framework/bootstrap4/js/bootstrap.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/bootstrap4/js/bootstrap.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/framework/bootstrap4/js/bootstrap.min.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/bootstrap4/js/jquery-3.4.1.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/Resource/framework/bootstrap4/js/jquery-3.4.1.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/Book.php" beforeDir="false" afterPath="$PROJECT_DIR$/models/Book.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/css/newBook.css" beforeDir="false" afterPath="$PROJECT_DIR$/view/css/newBook.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/layouts/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/layouts/header.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/page/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/page/main.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/page/newBook.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/page/newBook.php" afterDir="false" />
     </list>
@@ -24,58 +44,59 @@
     <session id="945120674">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="14" />
+          <entry key="project.closed" value="15" />
           <entry key="project.open.time.10" value="4" />
           <entry key="project.open.time.11" value="3" />
           <entry key="project.open.time.12" value="2" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.15" value="1" />
+          <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.20" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="14" />
+          <entry key="project.opened" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="14" />
+          <entry key="css" value="18" />
           <entry key="gitignore" value="1" />
-          <entry key="htaccess" value="2" />
+          <entry key="htaccess" value="3" />
           <entry key="html" value="3" />
           <entry key="ini" value="1" />
           <entry key="js" value="4" />
-          <entry key="php" value="31" />
+          <entry key="php" value="51" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="13" />
+          <entry key="CSS" value="17" />
           <entry key="HTML" value="3" />
           <entry key="Ini" value="1" />
           <entry key="JavaScript" value="4" />
-          <entry key="PHP" value="31" />
+          <entry key="PHP" value="51" />
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="htaccess" value="2" />
+          <entry key="htaccess" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="2037" />
+          <entry key="css" value="2155" />
           <entry key="dummy" value="30" />
           <entry key="htaccess" value="162" />
           <entry key="html" value="24" />
           <entry key="js" value="348" />
-          <entry key="php" value="8502" />
+          <entry key="php" value="8947" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="2037" />
+          <entry key="CSS" value="2155" />
           <entry key="HTML" value="24" />
           <entry key="JavaScript" value="348" />
-          <entry key="PHP" value="8467" />
+          <entry key="PHP" value="8911" />
           <entry key="PLAIN_TEXT" value="30" />
-          <entry key="SQL" value="35" />
+          <entry key="SQL" value="36" />
           <entry key="htaccess" value="162" />
         </counts>
       </usages-collector>
@@ -91,35 +112,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/MainController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="12" column="43" lean-forward="true" selection-start-line="12" selection-start-column="43" selection-end-line="12" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/page/main.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="64" column="8" lean-forward="true" selection-start-line="64" selection-start-column="8" selection-end-line="64" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/routes.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="3" column="36" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/view/page/newBook.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="22" column="38" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
+            <state relative-caret-position="220">
+              <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -128,33 +122,64 @@
         <entry file="file://$PROJECT_DIR$/view/css/newBook.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="80">
-              <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
+              <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/Book.php">
+        <entry file="file://$PROJECT_DIR$/config/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="70" column="25" selection-start-line="70" selection-start-column="25" selection-end-line="70" selection-end-column="25" />
+            <state relative-caret-position="160">
+              <caret line="8" column="40" lean-forward="true" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/User.php">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/view/page/newBook.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="157">
+              <caret line="29" column="50" lean-forward="true" selection-start-line="29" selection-start-column="50" selection-end-line="29" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/page/aboutBook.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controllers/BookController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+            <state relative-caret-position="820">
+              <caret line="41" column="33" lean-forward="true" selection-start-line="41" selection-end-line="42" />
               <folding>
                 <element signature="e#7#96#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/Router.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="720">
+              <caret line="52" column="43" selection-start-line="52" selection-start-column="43" selection-end-line="52" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="21" column="6" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -176,7 +201,14 @@
       <find>34ce57</find>
       <find>//</find>
       <find>nav-item</find>
+      <find>small</find>
+      <find>framework</find>
+      <find>newBo</find>
+      <find>newB</find>
     </findStrings>
+    <replaceStrings>
+      <replace>Resource/framework</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -207,15 +239,16 @@
         <option value="$PROJECT_DIR$/view/css/main_body.css" />
         <option value="$PROJECT_DIR$/view/layouts/footer.php" />
         <option value="$PROJECT_DIR$/view/css/header.css" />
-        <option value="$PROJECT_DIR$/view/layouts/header.php" />
         <option value="$PROJECT_DIR$/view/js/newBookPage.js" />
-        <option value="$PROJECT_DIR$/config/routes.php" />
         <option value="$PROJECT_DIR$/controllers/MainController.php" />
-        <option value="$PROJECT_DIR$/controllers/BookController.php" />
-        <option value="$PROJECT_DIR$/view/page/main.php" />
-        <option value="$PROJECT_DIR$/models/Book.php" />
         <option value="$PROJECT_DIR$/view/css/newBook.css" />
+        <option value="$PROJECT_DIR$/models/Book.php" />
         <option value="$PROJECT_DIR$/view/page/newBook.php" />
+        <option value="$PROJECT_DIR$/view/page/main.php" />
+        <option value="$PROJECT_DIR$/view/page/aboutBook.php" />
+        <option value="$PROJECT_DIR$/view/layouts/header.php" />
+        <option value="$PROJECT_DIR$/controllers/BookController.php" />
+        <option value="$PROJECT_DIR$/config/routes.php" />
       </list>
     </option>
   </component>
@@ -226,8 +259,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="575" />
-    <option name="y" value="-24" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
     <option name="width" value="1095" />
     <option name="height" value="870" />
   </component>
@@ -246,7 +279,12 @@
             <path>
               <item name="MangaClub" type="b2602c69:ProjectViewProjectNode" />
               <item name="MangaClub" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MangaClub" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MangaClub" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MangaClub" type="b2602c69:ProjectViewProjectNode" />
@@ -300,12 +338,15 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="N:\MyPrograms\OSPanel\domains\MangaClub\view\page" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="N:\MyPrograms\OSPanel\domains\MangaClub\Resource" />
       <recent name="N:\MyPrograms\OSPanel\domains\MangaClub\view" />
       <recent name="N:\MyPrograms\OSPanel\domains\MangaClub" />
       <recent name="N:\MyPrograms\OSPanel\domains\MangaClub\view\page_main" />
       <recent name="N:\MyPrograms\OSPanel\domains\MangaClub\view\js" />
-      <recent name="N:\MyPrograms\OSPanel\domains\MangaClub\view\css" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -354,16 +395,17 @@
       <workItem from="1560939690216" duration="6158000" />
       <workItem from="1561025731107" duration="3962000" />
       <workItem from="1561372348818" duration="12809000" />
+      <workItem from="1561451501020" duration="5875000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="150665000" />
+    <option name="totallyTimeSpent" value="156540000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16577181" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16778524" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -412,50 +454,15 @@
     <entry file="file://$PROJECT_DIR$/view/css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/framework/bootstrap4/css/bootstrap.css">
+    <entry file="file://$PROJECT_DIR$/Resource/framework/bootstrap4/css/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="328">
           <caret line="9029" column="9" selection-start-line="9029" selection-start-column="9" selection-end-line="9029" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.htaccess">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" selection-start-line="5" selection-end-line="5" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/view/img/preview/Manga Club_files/all.css" />
     <entry file="file://$PROJECT_DIR$/controllers/Main.php" />
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="21" column="6" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/Db.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="34" column="14" selection-start-line="34" selection-start-column="14" selection-end-line="34" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/css/header.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="23" column="19" lean-forward="true" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/css/main_body.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1300">
-          <caret line="65" column="19" selection-start-line="65" selection-start-column="19" selection-end-line="65" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/view/js/anchors.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -470,6 +477,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/models/User.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/Book.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="61" column="133" lean-forward="true" selection-start-line="61" selection-start-column="133" selection-end-line="61" selection-end-column="133" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/view/layouts/footer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -477,72 +494,111 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/Router.php">
+    <entry file="file://$PROJECT_DIR$/view/layouts/header.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        <state relative-caret-position="280">
+          <caret line="22" column="46" lean-forward="true" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/Db.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="457">
+          <caret line="47" column="38" selection-start-line="47" selection-start-column="38" selection-end-line="47" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/MainController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="12" column="43" lean-forward="true" selection-start-line="12" selection-start-column="43" selection-end-line="12" selection-end-column="43" />
+        <state relative-caret-position="220">
+          <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/User.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/layouts/header.php">
+    <entry file="file://$PROJECT_DIR$/view/css/header.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1740">
-          <caret line="51" column="55" selection-start-line="51" selection-start-column="55" selection-end-line="51" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="36" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/BookController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-          <folding>
-            <element signature="e#7#96#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/page/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="64" column="8" lean-forward="true" selection-start-line="64" selection-start-column="8" selection-end-line="64" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/Book.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="70" column="25" selection-start-line="70" selection-start-column="25" selection-end-line="70" selection-end-column="25" />
+        <state relative-caret-position="460">
+          <caret line="23" column="19" lean-forward="true" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/css/newBook.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
-          <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
+          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/css/main_body.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="93" selection-start-line="93" selection-end-line="97" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/page/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="640">
+          <caret line="82" column="72" lean-forward="true" selection-start-line="82" selection-start-column="72" selection-end-line="82" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/Router.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="52" column="43" selection-start-line="52" selection-start-column="43" selection-end-line="52" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/page/about.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="40" lean-forward="true" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/page/newBook.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="22" column="38" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
+        <state relative-caret-position="157">
+          <caret line="29" column="50" lean-forward="true" selection-start-line="29" selection-start-column="50" selection-end-line="29" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/page/aboutBook.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/BookController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="820">
+          <caret line="41" column="33" lean-forward="true" selection-start-line="41" selection-end-line="42" />
+          <folding>
+            <element signature="e#7#96#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="28" lean-forward="true" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="21" column="6" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
         </state>
       </provider>
     </entry>
