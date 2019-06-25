@@ -15,24 +15,24 @@
 	<meta name="author" content="Vadim Shpet">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<link rel="stylesheet" href="Resource/framework/bootstrap4/css/bootstrap.css">
-	<link rel="stylesheet" href="view/css/main_body.css">
-	<link rel="stylesheet" href="view/css/header.css">
+	<link rel="stylesheet" href="/Resource/framework/bootstrap4/css/bootstrap.css">
+	<link rel="stylesheet" href="/view/css/main_body.css">
+	<link rel="stylesheet" href="/view/css/header.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
 			integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-	<link rel="icon" href="view/img/favicon.ico">
+	<link rel="icon" href="/view/img/favicon.ico">
 
-	<script src="Resource/framework/bootstrap4/js/jquery-3.4.1.min.js" defer></script>
-	<script src="Resource/framework/bootstrap4/js/bootstrap.bundle.min.js" defer></script>
-	<script src="Resource/framework/bootstrap4/js/bootstrap.min.js" defer></script>
-	<script src="view/js/anchors.js" defer></script>
+	<script src="/Resource/framework/bootstrap4/js/jquery-3.4.1.min.js" defer></script>
+	<script src="/Resource/framework/bootstrap4/js/bootstrap.bundle.min.js" defer></script>
+	<script src="/Resource/framework/bootstrap4/js/bootstrap.min.js" defer></script>
+	<script src="/view/js/anchors.js" defer></script>
 	<title>Manga Club</title>
 </head>
 <body>
 <header>
 	<nav class="navbar navbar-expand-md  navbar-dark bg-dark fixed-top">
 		<a href="/" class="navbar-brand">
-			<img src="view/img/logo_site.png" alt="logo site"> MangaClub
+			<img src="/view/img/logo_site.png" alt="logo site"> MangaClub
 		</a>
 
 		<button class="navbar-toggler" type="button" data-target="#main_nav" data-toggle="collapse">

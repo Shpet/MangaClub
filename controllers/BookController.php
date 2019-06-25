@@ -21,7 +21,7 @@
 
 		public function actionPopularBook()
 		{
-			echo 'Book controller actionPopularBook';
+			require_once (ROOT.'/view/page/aboutBook.php');
 			return true;
 		}
 
@@ -37,9 +37,9 @@
 
 		public function actionBookIndex($id)
 		{
-//			$bookList = Book::getBookById($id);
+			$bookItem = Book::getBookById($id);
 
-			require_once (ROOT.'/view/page/about.php');
+			require_once (ROOT.'/view/page/aboutBook.php');
 
 			return true;
 		}

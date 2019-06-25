@@ -16,10 +16,20 @@
 			//подключение к бд
 			$db = Db::getConnection();
 
-			$result = $db->query("SELECT * FROM book WHERE id_book = $id");
+			$result = $db->query("SELECT *, GROUP_CONCAT(genre.name_genre ORDER BY genre.name_genre SEPARATOR ', ') as genre 
+											FROM book 
+											JOIN book_genre ON book.id_book = book_genre.id_book_bg 
+											JOIN genre on book_genre.id_genre_bg = genre.id_genre 
+											where id_book = $id");
 
 			$bookItem = $result->fetch();
-			return$bookItem;
+
+			if($bookItem['ongoing'])
+				$bookItem['ongoing'] = 'да';
+			else
+				$bookItem['ongoing'] = 'нет';
+
+			return $bookItem;
 		}
 
 		//return array

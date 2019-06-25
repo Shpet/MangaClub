@@ -23,9 +23,16 @@
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-.col-9 p.text-right{
+.col-6 span{
     font-size: 1em;
     font-weight: 600;
     color: #e2dc52;
+}
+.col-6 a{
+    color: rgb(235,229,232);
+    border-radius: .2em;
+}
+.col-6 a:hover{
+    color: #bdb7ba;
 }
 
