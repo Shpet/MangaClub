@@ -8,10 +8,10 @@
 	include ROOT . '/view/layouts/header.php';
 ?>
 <script src='/view/js/newBookPage.js' defer></script>
-<script src="/Resource/Librarry/jquery.fancybox.min.js" defer></script>
+<script src="/Resource/library/jquery.fancybox.min.js" defer></script>
 
 <link rel="stylesheet" href="/view/css/newBook.css">
-<link rel="stylesheet" href="/Resource/Librarry/jquery.fancybox.min.css">
+<link rel="stylesheet" href="/Resource/library/jquery.fancybox.min.css">
 
 <div class="content">
 	<div class="container-fluid">
@@ -26,7 +26,7 @@
 
 					</div>
 					<div class="col-9">
-						<p class="text-uppercase h5"><a href="#"><?= $item['name_book'] ?></a></p>
+						<p class="text-uppercase h5"><a href="/book/<?=$item['id_book'] ?>"><?= $item['name_book'] ?></a></p>
 						<b>Автор:</b> <?= $item['author'] ?>
 						<br>
 						<b>Жанр:</b> <?= $item['name_genre'] ?>
@@ -38,7 +38,7 @@
 							<div class="col-6">
 								<div class="btn-group-sm p-2">
 									<a href="/book/<?= $item['id_book'] ?>" class="btn btn-dark text-left">Подробнее</a>
-									<a href="/book/<?= $item['id_book'] ?>" class="btn btn-dark text-left">Читать</a>
+									<a href="/" class="btn btn-dark text-left">Читать</a>
 								</div>
 							</div>
 							<div class="col-6 text-right pt-3">

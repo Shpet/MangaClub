@@ -19,7 +19,7 @@ include ROOT.'/view/layouts/header.php';
 
 							?>
 
-							<a href="#">
+							<a href="/book/<?=$newBook[$i]['id_book'] ?>">
 								<img src="<?= $newBook[$i]['b_path_logo'] ?>" alt="<?= $newBook[$i]['name_book'] ?>">
 							</a>
 
@@ -43,13 +43,13 @@ include ROOT.'/view/layouts/header.php';
 					if($count > 5):
 				?>
 				<div class="carousel-item text-center">
-					<a href="#">
+					<a href="/newBook">
 						<img src="view/img/preview/text.jpg" alt="Akame Ga Kill" class="d-inline-flex">
 					</a>
 					<?php
 						foreach($newBook2 as $bookItem):
 							?>
-							<a href="#">
+							<a href="/book/<?=$bookItem['id_book'] ?>">
 								<img src="<?= $bookItem['b_path_logo'] ?>" alt="<?= $bookItem['name_book'] ?>"
 										class="d-inline-flex">
 							</a>
