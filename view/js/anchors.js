@@ -18,3 +18,5 @@ window.onscroll = function () {
         scroll_up.style.display = "block"
     } else scroll_up.style.display = "none";
 };
+
+

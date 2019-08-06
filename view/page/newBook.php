@@ -38,7 +38,7 @@
 							<div class="col-6">
 								<div class="btn-group-sm p-2">
 									<a href="/book/<?= $item['id_book'] ?>" class="btn btn-dark text-left">Подробнее</a>
-									<a href="/" class="btn btn-dark text-left">Читать</a>
+									<a href="/book/<?=$item['id_book']?>/read" class="btn btn-dark text-left">Читать</a>
 								</div>
 							</div>
 							<div class="col-6 text-right pt-3">

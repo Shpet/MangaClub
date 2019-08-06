@@ -73,7 +73,8 @@
 										  FROM book
 								 		  JOIN book_genre ON book.id_book = book_genre.id_book_bg 
  										  JOIN genre on book_genre.id_genre_bg = genre.id_genre
-										  ORDER BY book.id_book DESC ');
+										  ORDER BY book.id_book DESC 
+										  LIMIT 15');
 
 			//запись результатов запроса
 			$i =0;
@@ -125,5 +126,20 @@
 				}
 			}
 			return $booklist;
+		}
+
+		public static function getReadBookById($id){
+			$id = intval($id);
+
+			//подключение к бд
+			$db = Db::getConnection();
+
+			$result = $db->query("SELECT id_book, b_path_content 
+											FROM book 
+											where id_book = $id");
+
+			$bookItem = $result->fetch();
+
+			return $bookItem;
 		}
 	}

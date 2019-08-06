@@ -10,7 +10,7 @@ include ROOT.'/view/layouts/header.php';
 			<div class="carousel-inner">
 				<div class="carousel-item text-center active">
 					<a href="/newBook">
-						<img src="view/img/preview/text.jpg" alt="Akame Ga Kill" class="d-inline-flex">
+						<img src="/view/img/preview/text.jpg" alt="Akame Ga Kill" class="d-inline-flex">
 					</a>
 
 					<?php
@@ -44,7 +44,7 @@ include ROOT.'/view/layouts/header.php';
 				?>
 				<div class="carousel-item text-center">
 					<a href="/newBook">
-						<img src="view/img/preview/text.jpg" alt="Akame Ga Kill" class="d-inline-flex">
+						<img src="/view/img/preview/text.jpg" alt="Akame Ga Kill" class="d-inline-flex">
 					</a>
 					<?php
 						foreach($newBook2 as $bookItem):
@@ -79,7 +79,7 @@ include ROOT.'/view/layouts/header.php';
 								<p>Жанр: <?=$item['name_genre'] ?></p>
 								<div class="d-flex justify-content-between">
 									<div class="btn-group">
-										<a class="btn btn-outline-light">Читать</a>
+										<a href="/book/<?=$item['id_book'] ?>/read" class="btn btn-outline-light">Читать</a>
 										<a href="book/<?=$item['id_book'] ?>" class="btn btn-outline-light">Подробнее</a>
 									</div>
 									<small>Рейтинг: <?=$item['b_rating']?></small>
