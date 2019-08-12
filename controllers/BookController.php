@@ -6,8 +6,6 @@
 	 * Time: 20:35
 	 */
 
-	include_once ROOT . '/models/Book.php';
-
 	class bookController
 	{
 		public function actionNewBook()
@@ -61,8 +59,8 @@
 			$ext='';
 			$title='';
 			$i=0;
-			//пробуем открыть папку  'view\content\tokyo_ghoul\Tom1\2'
-			$dir_handle = @opendir($directory) or die($directory);
+			//пробуем открыть папку
+			$dir_handle = @opendir($directory) or die("Не удалось открыть: ".$directory);
 			while ($file = readdir($dir_handle))    //поиск по файлам
 			{
 				if($file=="." || $file == "..") continue;  //пропустить ссылки на другие папки
@@ -111,6 +109,33 @@
 		public function actionBookIndex($id)
 		{
 			$bookItem = Book ::getBookById($id);
+			$arts = array();
+
+			$directory = $bookItem['b_path_content'].'Arts/';    // Папка с изображениями
+			$directory = str_replace('/', '\\', substr($directory,1));
+			$allowed_types=array("jpg", "png", "gif");  //разрешеные типы изображений
+			$file_parts = array();
+
+			$ext='';
+			$i=0;
+			//пробуем открыть папку
+			$dir_handle = @opendir($directory) or die("Не удалось открыть: ".$directory);
+			while ($file = readdir($dir_handle))    //поиск по файлам
+			{
+				if($file=="." || $file == "..") continue;  //пропустить ссылки на другие папки
+				$file_parts = explode(".",$file);          //разделить имя файла и поместить его в массив
+				$ext = strtolower(array_pop($file_parts));   //последний элеменет - это расширение
+				$path = '/'.str_replace('\\', '/',$directory.$file);
+
+				if(in_array($ext,$allowed_types))
+				{
+					$arts[$i] = $path;
+					$i++;
+				}
+
+
+			}
+			closedir($dir_handle);  //закрыть папку
 
 			require_once(ROOT . '/view/page/aboutBook.php');
 

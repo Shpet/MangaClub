@@ -5,10 +5,11 @@
 }
 .modal-body input{
     border-radius: 0.3em;
+    padding-left: .3em;
 }
 .content {
     text-align: justify;
-    padding: 5em;
+    padding: 0 5em;
     flex-grow: 1;
 }
 

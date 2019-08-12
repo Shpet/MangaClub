@@ -1,5 +1,4 @@
 <?php
-
 	include ROOT.'/view/layouts/header.php';
 ?>
 <script src="/Resource/library/jquery.fancybox.min.js" defer></script>
@@ -20,7 +19,7 @@
 			<p class="h5"><b>Жанр: </b><span class="text-lowercase"><?=$bookItem['genre'] ?></span> </p>
 			<p class="h5"><b>Онгоинг:</b> <?=$bookItem['ongoing'] ?></p>
 			<p class="h5"><b>Описание:</b> <?=$bookItem['b_description'] ?></p>
-			<a href="/" class="btn btn-info">Читать</a>
+			<a href="/book/<?=$bookItem['id_book'] ?>/read" class="btn btn-info">Читать</a>
 			<p class="h5 text-right"><b>Рейтинг:</b> <?=$bookItem['b_rating'] ?></p>
 		</div>
 	</div>
@@ -32,15 +31,16 @@
 			<div class="container-fluid">
 				<div class="row">
 				<?php
-					for($i =0; $i < 10; $i++):
+					foreach($arts as $item):
 				?>
+
 					<div class=" col-md-3 my-3">
-						<a data-fancybox="gallery" href="/view/content/akame/1.1/05.png">
-							<img class="card-img-top" alt="Arts" src="/view/content/akame/1.1/0<?=$i+1?>.png" data-holder-rendered="true">
+						<a data-fancybox="gallery" href="<?=$item ?>">
+							<img class="card-img-top" alt="Art" src="<?=$item ?>" data-holder-rendered="true">
 						</a>
 					</div>
 					<?php
-						endfor;
+						endforeach;
 					?>
 				</div>
 			</div>

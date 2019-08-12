@@ -5,7 +5,6 @@
 	 * Date: 13.06.2019
 	 * Time: 16:33
 	 */
-	include_once  ROOT.'/models/Book.php';
 
 	class MainController
 	{

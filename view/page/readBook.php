@@ -41,7 +41,8 @@
 				<div>
 					<select name="Toms" id="selectToms" class="btn-lg btn-secondary">
 						<?
-							for($i = 0; $i < $tomsCount; $i++)
+							// $tomsCount-1, becouse 1 folder it's 'Arts'
+							for($i = 0; $i < $tomsCount-1; $i++)
 							{
 								$count = $i+1;
 								echo '<option value="Tom'.$count.'">Том '. $count .'</option >';

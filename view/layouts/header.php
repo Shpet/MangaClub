@@ -18,7 +18,8 @@
 	<link rel="stylesheet" href="/Resource/framework/bootstrap4/css/bootstrap.css">
 	<link rel="stylesheet" href="/view/css/main_body.css">
 	<link rel="stylesheet" href="/view/css/header.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+	<link
+			rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
 			integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 	<link rel="icon" href="/view/img/favicon.ico">
 
@@ -129,7 +130,7 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<form action="#" method="post">
+					<form action="register" method="post">
 						<div class="row">
 							<div class="col-5">
 								<div class="row p-3">
@@ -145,27 +146,42 @@
 									<label for="pass_repeat">Повторите пароль:</label>
 								</div>
 								<div class="row p-3">
+									<label for="pass_repeat">Пол:</label>
+								</div>
+								<div class="row p-3">
 									<label for="birthday">Дата рождения:</label>
 								</div>
 							</div>
 							<div class="col-7">
 								<div class="row p-3">
-									<input class="w-100" autofocus id="email" type="email">
+									<input class="w-100" autofocus id="email" name="email" type="email" required>
 								</div>
 								<div class="row p-3">
-									<input class="w-100" id="nick" type="text">
+									<input class="w-100" id="nick" name="nick" type="text" required>
 								</div>
 								<div class="row p-3">
-									<input class="w-100" id="pass_registr" type="password">
+									<input
+											class="w-100" id="pass_register" name="pass_register" type="password"
+											required>
 								</div>
 								<div class="row p-3">
-									<input class="w-100" id="pass_repeat" type="password">
+									<input class="w-100" id="pass_repeat" name="pass_repeat" type="password" required>
 								</div>
 								<div class="row p-3">
-									<input class="w-100" id="birthday" type="date">
+									<label>
+										<input class="mr-1" id="sexM" type="radio" name="sex" value="man">Парень
+									</label>
+									<label>
+										<input class="mr-1 ml-3" id="sexW" type="radio" name="sex" value="woman">Девушка
+									</label>
 								</div>
 								<div class="row p-3">
-									<button class="btn btn-info w-100">Зарегистрироваться</button>
+									<input class="w-100" id="birthday" name="birthday" type="date">
+								</div>
+								<div class="row p-3">
+									<input
+											type="submit" id="submit" name="submit" class="btn btn-info w-100"
+											value="Зарегистрироваться">
 								</div>
 							</div>
 						</div>
