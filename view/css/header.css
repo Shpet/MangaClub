@@ -31,6 +31,9 @@ footer a {
     font-size: 2em;
     padding: 0.5em 0.5em 0 0.5em;
 }
+ul.navbar-nav li.nav-item{
+    font-weight: bolder;
+}
 
 .search_btn {
     border: 1px solid;
@@ -55,12 +58,16 @@ footer a {
 
 .dropdown {
     margin-right: 1em;
-    width: 150px;
 }
-
+.dropdown, .dropdown-menu{
+    width: 10em;
+}
 .dropdown-menu {
-    min-width: 100px;
     padding: 1em;
+}
+.success{
+    color: #00ff00;
+    text-align: center;
 }
 
 @media (max-width: 770px) {

@@ -5,6 +5,7 @@
 	 * Date: 16.06.2019
 	 * Time: 13:59
 	 */
+
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -54,11 +55,15 @@
 			</ul>
 
 			<div class="custom-control-inline directionColumn">
+				<?php
+					if(User ::isGuess()):
+				?>
 				<div class="dropdown open">
 					<a
 							href="#" class="nav-link btn btn-secondary dropdown-toggle" id="dropdownAccount"
-							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Аккаунт</a>
+							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Авторизация</a>
 					<div class="dropdown-menu" aria-labelledby="dropdownAccount">
+
 						<button
 								type="button" data-toggle="modal" data-target="#signIn"
 								class="btn btn-outline-info w-100">Войти
@@ -70,7 +75,24 @@
 						</button>
 					</div>
 				</div>
+					<?php
+					else:
+						?>
+						<div class="dropdown open">
+							<a
+									href="#" class="nav-link btn btn-secondary dropdown-toggle" id="dropdownAccount"
+									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Аккаунт</a>
+							<div class="dropdown-menu" aria-labelledby="dropdownAccount">
 
+								<a href="profile" class="btn btn-outline-info w-100">Профиль</a>
+								<div class="dropdown-divider"></div>
+								<a href="logout" class="btn btn-outline-danger w-100">Выход</a>
+
+							</div>
+						</div>
+					<?php
+					endif;
+				?>
 				<form class="form-inline ml-3">
 					<input type="search" placeholder="Поиск" class="form-control search_inp">
 					<button type="submit" class="btn btn-outline-success search_btn"><i
@@ -91,11 +113,11 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<form action="#" method="post">
+					<form action="signIn" method="post">
 						<div class="row">
 							<div class="col-3">
 								<div class="row p-3">
-									<label for="login">Логин:</label>
+									<label for="login">Email:</label>
 								</div>
 								<div class="row p-3">
 									<label for="pass">Пароль:</label>
@@ -103,13 +125,15 @@
 							</div>
 							<div class="col-9">
 								<div class="row p-3">
-									<input class="w-100" autofocus id="login" type="text">
+									<input class="w-100" autofocus id="login" name="login" type="email">
 								</div>
 								<div class="row p-3">
-									<input class="w-100" id="pass" type="password">
+									<input class="w-100" id="pass" name="pass" type="password">
 								</div>
 								<div class="row p-3">
-									<button class="btn btn-info w-100">Войти</button>
+									<input
+											type="submit" name="butt_signIn" id="butt_signIn" class="btn btn-info w-100"
+											value="Войти">
 								</div>
 							</div>
 						</div>

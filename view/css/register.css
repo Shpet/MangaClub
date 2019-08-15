@@ -12,10 +12,16 @@ form#main_form{
     -moz-border-radius: .3em;
     border-radius: .3em;
     color: white;
+    margin: 1em;
+}
+form#main_form h1{
+    text-align: center;
+    margin-bottom: 1em;
 }
 form#main_form .row .row{
-    padding: 1em;
+    padding: 0.8em;
 }
+
 input{
     border-radius: 0.3em;
     padding-left: 0.3em;

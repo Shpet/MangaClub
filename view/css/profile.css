@@ -1,0 +1,37 @@
+body{
+    background: linear-gradient(130deg, #6c757d, #343a40);
+}
+.container{
+    height: 100%;
+}
+.container .row{
+    margin: 2em 0;
+}
+.container ul.buttList{
+    display: flex;
+    padding-left: 0;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.container ul.buttList li{
+    margin: 1em .2em;
+    flex: 0 0 30%;
+    max-width: 30%;
+}
+
+.container ul.userInfo>li{
+    margin: .5em 0 ;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: yellow;
+}
+.container ul.userInfo li span{
+    padding-left: .5em;
+    color: white;
+}
+img#avatar{
+    height: 160px;
+}
+li{
+    list-style: none;
+}

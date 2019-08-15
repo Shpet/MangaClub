@@ -9,6 +9,38 @@
 	class UserController
 	{
 
+		public function actionSignIn()
+		{
+			$data = $_POST;
+			$login = '';
+			$pass = '';
+
+			if(isset($data['butt_signIn']))
+			{
+
+				$login = trim(strip_tags($data['login']));
+				$pass = $data['pass'];
+
+				$errors = false;
+
+				$userId = User ::checkUserData($login, $pass);
+
+				if($userId == false)
+				{
+					$errors[] = 'Неправильно введены данные';
+				}
+				else
+				{
+					User ::addInSession($userId);
+					?>
+					<meta http-equiv="refresh" content="0;url=/">
+					<?php
+				}
+			}
+			require_once(ROOT . '/view/page/profile.php');
+			return true;
+		}
+
 		public function actionRegister()
 		{
 			$nick = '';
@@ -19,16 +51,19 @@
 			$checked = '';
 			$result = false;
 
-			if(isset($_POST['submit']))
+			$data = $_POST;
+
+			if(isset($data['submit']))
 			{
-				$nick = trim(strip_tags($_POST['nick']));
-				$email = trim(strip_tags($_POST['email']));
-				$pass = trim(strip_tags($_POST['pass_register']));
-				$pass_repeat = trim(strip_tags($_POST['pass_repeat']));
-				if(isset($_POST['sex'])){
-					$sex = $_POST['sex'];
+				$nick = trim(strip_tags($data['nick']));
+				$email = trim(strip_tags($data['email']));
+				$pass = ($data['pass_register']);
+				$pass_repeat = ($data['pass_repeat']);
+				if(isset($data['sex']))
+				{
+					$sex = $data['sex'];
 				}
-				$birthday = trim(strip_tags($_POST['birthday']));
+				$birthday = trim(strip_tags($data['birthday']));
 
 				$errors = false;
 
@@ -42,27 +77,36 @@
 					$errors[] = 'Its not a "email"';
 				}
 
-				if(!User::checkPassword($pass))
+				if(!User ::checkPassword($pass))
 				{
 					$errors[] = 'Password has been > 5 symbols';
 				}
 
-				if(!User::checkSecondPass($pass, $pass_repeat))
+				if(!User ::checkSecondPass($pass, $pass_repeat))
 				{
 					$errors[] = 'Password and password_repeat a not match';
 				}
-				if(User::checkEmailExists($email)){
+				if(User ::checkEmailExists($email))
+				{
 					$errors[] = "Такой email уже есть";
 				}
 
-				if($errors == false){
+				if($errors == false)
+				{
 					if($sex == '') $sex = NULL;
 					if($birthday == '') $birthday = NULL;
-					$result = User::registerUser($nick, $email, $pass, $sex, $birthday);
+					$pass = password_hash($pass, PASSWORD_DEFAULT);
+					$result = User ::registerUser($nick, $email, $pass, $sex, $birthday);
 				}
 			}
 
 			require_once(ROOT . '/view/page/register.php');
 			return true;
+		}
+
+
+		public static function actionLogout(){
+			unset($_SESSION["user"]);
+			header("Location: /");
 		}
 	}
