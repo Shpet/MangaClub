@@ -17,6 +17,9 @@
 				 "admin" => "Admin/Index",
 				 "admin/add" => "Admin/Add",
 				 "admin/delete" => "Admin/AdminDelete",
+
+				 "admin/update" => "Admin/AdminUpdate",
+				 "admin/update/(.+)" => "Admin/AdminUpdateByName/$1",
 				 "book/update/([0-9]+)" => "Admin/Update/$1",
 				 "book/delete/([0-9]+)" => "Admin/Delete/$1",
 				 ".+" => 'Main/MainPage');

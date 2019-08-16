@@ -16,7 +16,7 @@
 		<div class="col-7 pl-0">
 			<h2 class="my-3"><?=$bookItem['name_book'] ?>
 				<a id="deleteBook" href="delete/<?=$bookItem['id_book'] ?>"><i class="fas fa-trash-alt"></i></a>
-				<a id="updateBook" href="#"><i class="fas fa-pen"></i></a>
+				<a id="updateBook" href="update/<?=$bookItem['id_book'] ?>"><i class="fas fa-pen"></i></a>
 			</h2>
 			<p class="h5"><b>Автор:</b> <?=$bookItem['author'] ?></p>
 			<p class="h5"><b>Год выхода:</b> <?=$bookItem['b_year'] ?></p>

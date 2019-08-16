@@ -14,41 +14,72 @@
 			$id = intval($id);
 
 			//подключение к бд
-			$db = Db::getConnection();
+			$db = Db ::getConnection();
 
-			$result = $db->query("SELECT *, GROUP_CONCAT(genre.name_genre ORDER BY genre.name_genre SEPARATOR ', ') as genre 
+			$result = $db -> query("SELECT *, GROUP_CONCAT(genre.name_genre ORDER BY genre.name_genre SEPARATOR ', ') as genre 
 											FROM book 
 											JOIN book_genre ON book.id_book = book_genre.id_book_bg 
 											JOIN genre on book_genre.id_genre_bg = genre.id_genre 
 											where id_book = $id");
 
-			$bookItem = $result->fetch();
+			$bookItem = $result -> fetch();
 
-			if($bookItem['ongoing'])
-				$bookItem['ongoing'] = 'да';
+			if($bookItem['ongoing']) $bookItem['ongoing'] = 'да';
 			else
 				$bookItem['ongoing'] = 'нет';
 
 			return $bookItem;
 		}
 
+		public static function getBookByName($name)
+		{
+			$name = strval($name);
+			//подключение к бд
+			$db = Db ::getConnection();
+
+			$result = $db -> query("SELECT *, GROUP_CONCAT(genre.name_genre ORDER BY genre.name_genre SEPARATOR ', ') as genre 
+											FROM book 
+											JOIN book_genre ON book.id_book = book_genre.id_book_bg 
+											JOIN genre on book_genre.id_genre_bg = genre.id_genre 
+											where name_book = '$name'");
+
+			$bookItem = $result -> fetch();
+
+			if($bookItem['ongoing']) $bookItem['ongoing'] = 'да';
+			else
+				$bookItem['ongoing'] = 'нет';
+
+			return $bookItem;
+		}
+
+		public static function checkNameBookExists($name)
+		{
+			$db = Db ::getConnection();
+			$sql = 'SELECT COUNT(*) FROM book WHERE name_book = :name_b';
+
+			$result = $db -> prepare($sql);
+			$result -> bindParam(':name_b', $name, PDO::PARAM_STR);
+			$result -> execute();
+
+			if($result -> fetchColumn()) return true;
+			return false;
+		}
+
 		//return array
 		public static function getBooksList()
 		{
 			//подключение к бд
-			$db = Db::getConnection();
+			$db = Db ::getConnection();
 			$booksList = array();
 
 			//запрос к бд
-			$result = $db->query('SELECT *'.
-								'FROM book '.
-								'ORDER BY id_book DESC '.
-								'LIMIT 7');
+			$result = $db -> query('SELECT *' . 'FROM book ' . 'ORDER BY id_book DESC ' . 'LIMIT 7');
 
 			//запись результатов запроса
-			$i =0;
+			$i = 0;
 
-			while($row = $result->fetch()){
+			while($row = $result -> fetch())
+			{
 				$booksList[$i]['name_book'] = $row['name_book'];
 				$booksList[$i]['author'] = $row['author'];
 				$booksList[$i]['ongoing'] = $row['ongoing'];
@@ -61,16 +92,17 @@
 			}
 			return $booksList;
 		}
+
 		//return array
 		public static function getNewBooks()
 		{
 			//подключение к бд
-			$db = Db::getConnection();
+			$db = Db ::getConnection();
 			$booksList = array();
 
 			// запрос к бд
 			// limit min 15
-			$result = $db->query('SELECT id_book, name_book, author, b_description, b_path_logo,b_path_logo_big, b_rating, name_genre
+			$result = $db -> query('SELECT id_book, name_book, author, b_description, b_path_logo,b_path_logo_big, b_rating, name_genre
 										  FROM book
 								 		  JOIN book_genre ON book.id_book = book_genre.id_book_bg 
  										  JOIN genre on book_genre.id_genre_bg = genre.id_genre
@@ -78,10 +110,12 @@
 										  LIMIT 15 	');
 
 			//запись результатов запроса
-			$i =0;
-			while($row = $result->fetch()){
-				if($i > 0 && $row['id_book'] == $booksList[$i-1]['id_book']){
-					$booksList[$i-1]['name_genre'] = $booksList[$i-1]['name_genre'].', '.$row['name_genre'];
+			$i = 0;
+			while($row = $result -> fetch())
+			{
+				if($i > 0 && $row['id_book'] == $booksList[$i - 1]['id_book'])
+				{
+					$booksList[$i - 1]['name_genre'] = $booksList[$i - 1]['name_genre'] . ', ' . $row['name_genre'];
 					continue;
 				}
 				$booksList[$i]['id_book'] = $row['id_book'];
@@ -98,12 +132,13 @@
 			return $booksList;
 		}
 
-		public static function getPopularBook(){
-			$db = Db::getConnection();
+		public static function getPopularBook()
+		{
+			$db = Db ::getConnection();
 			$booklist = array();
 
 			//запрос
-			$result = $db->query('SELECT id_book, name_book, name_genre, b_rating, b_path_logo_big
+			$result = $db -> query('SELECT id_book, name_book, name_genre, b_rating, b_path_logo_big
  									from book 
  									JOIN book_genre ON book.id_book = book_genre.id_book_bg 
  									JOIN genre on book_genre.id_genre_bg = genre.id_genre
@@ -111,9 +146,11 @@
 
 			//запись результатов
 			$i = 0;
-			while($row = $result->fetch()){
-				if($i > 0 && $row['id_book'] == $booklist[$i-1]['id_book']){
-					$booklist[$i-1]['name_genre'] = $booklist[$i-1]['name_genre'].', '.$row['name_genre'];
+			while($row = $result -> fetch())
+			{
+				if($i > 0 && $row['id_book'] == $booklist[$i - 1]['id_book'])
+				{
+					$booklist[$i - 1]['name_genre'] = $booklist[$i - 1]['name_genre'] . ', ' . $row['name_genre'];
 					continue;
 				}
 				$booklist[$i]['id_book'] = $row['id_book'];
@@ -122,69 +159,94 @@
 				$booklist[$i]['b_rating'] = $row['b_rating'];
 				$booklist[$i]['b_path_logo_big'] = $row['b_path_logo_big'];
 				$i++;
-				if($i > 5){
+				if($i > 5)
+				{
 					break;
 				}
 			}
 			return $booklist;
 		}
 
-		public static function getReadBookById($id){
+		public static function getReadBookById($id)
+		{
 			$id = intval($id);
 
 			//подключение к бд
-			$db = Db::getConnection();
+			$db = Db ::getConnection();
 
-			$result = $db->query("SELECT id_book, b_path_content 
+			$result = $db -> query("SELECT id_book, b_path_content 
 											FROM book 
 											where id_book = $id");
 
-			$bookItem = $result->fetch();
+			$bookItem = $result -> fetch();
 
 			return $bookItem;
 		}
 
 
-
-
-		public static function deleteBookById($id){
-			$db = Db::getConnection();
+		public static function deleteBookById($id)
+		{
+			$db = Db ::getConnection();
 
 			$sql = 'DELETE FROM book WHERE id_book = :id';
 
-			$res = $db->prepare($sql);
-			$res->bindParam(':id', $id, PDO::PARAM_INT);
+			$res = $db -> prepare($sql);
+			$res -> bindParam(':id', $id, PDO::PARAM_INT);
 
-			return $res->execute();
+			return $res -> execute();
 		}
-		public static function deleteBookByName($name){
-			$db = Db::getConnection();
+
+		public static function deleteBookByName($name)
+		{
+			$db = Db ::getConnection();
 
 			$sql = 'DELETE FROM book WHERE name_book = :name_b';
 
-			$res = $db->prepare($sql);
-			$res->bindParam(':name_b', $name, PDO::PARAM_STR);
+			$res = $db -> prepare($sql);
+			$res -> bindParam(':name_b', $name, PDO::PARAM_STR);
 
-			return $res->execute();
+			return $res -> execute();
 		}
 
 
+
+		public static function updateBookById($id, $name, $author, $ongoing, $year, $description)
+		{
+
+			$db = Db ::getConnection();
+
+			$sql = 'UPDATE book ' .
+				   ' SET name_book = :name, author = :author, ongoing = :ongoing, b_year = :year, b_description = :description' .
+				   ' WHERE id_book = :id';
+
+			$res = $db -> prepare($sql);
+			$res -> bindParam(':id', $id, PDO::PARAM_INT);
+			$res -> bindParam(':name', $name, PDO::PARAM_STR);
+			$res -> bindParam(':author', $author, PDO::PARAM_STR);
+			$res -> bindParam(':ongoing', $ongoing, PDO::PARAM_INT);
+			$res -> bindParam(':year', $year, PDO::PARAM_STR);
+			$res -> bindParam(':description', $description, PDO::PARAM_STR);
+
+			return $res -> execute();
+
+		}
+
 		public static function addBook($name, $author, $ongoing, $description, $year)
 		{
-			User::checkAdmin();
+			User ::checkAdmin();
 
-			$db = Db::getConnection();
+			$db = Db ::getConnection();
 
-			$sql = 'INSERT INTO `book`( `name_book`, `author`, `ongoing`, `b_description`, `$b_year`)'.
+			$sql = 'INSERT INTO `book`( `name_book`, `author`, `ongoing`, `b_description`, `$b_year`)' .
 				   ' VALUES (:name_book, :author, :ongoing, :b_description, :$b_year)';
 
-			$result = $db->prepare($sql);
-			$result->bindParam(':name_book', $name, PDO::PARAM_STR);
-			$result->bindParam(':author', $author, PDO::PARAM_STR);
-			$result->bindParam(':ongoing', $ongoing, PDO::PARAM_INT);
-			$result->bindParam(':b_description', $description, PDO::PARAM_STR);
-			$result->bindParam(':$b_year', $year, PDO::PARAM_STR);
+			$result = $db -> prepare($sql);
+			$result -> bindParam(':name_book', $name, PDO::PARAM_STR);
+			$result -> bindParam(':author', $author, PDO::PARAM_STR);
+			$result -> bindParam(':ongoing', $ongoing, PDO::PARAM_INT);
+			$result -> bindParam(':b_description', $description, PDO::PARAM_STR);
+			$result -> bindParam(':$b_year', $year, PDO::PARAM_STR);
 
-			return $result->execute();
+			return $result -> execute();
 		}
 	}

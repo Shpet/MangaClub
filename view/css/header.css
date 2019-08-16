@@ -69,6 +69,10 @@ ul.navbar-nav li.nav-item{
     color: #00ff00;
     text-align: center;
 }
+.denied{
+    color: #ff070d;
+    text-align: center;
+}
 
 @media (max-width: 770px) {
     .col-md-6 {

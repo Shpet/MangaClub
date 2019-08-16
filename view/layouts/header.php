@@ -84,6 +84,14 @@
 									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Аккаунт</a>
 							<div class="dropdown-menu" aria-labelledby="dropdownAccount">
 
+								<?php
+									if(User::isAdmin()):
+								?>
+								<a href="/admin" class="btn btn-outline-success w-100">Админка</a>
+								<div class="dropdown-divider"></div>
+								<?php
+									endif;
+								?>
 								<a href="/profile" class="btn btn-outline-info w-100">Профиль</a>
 								<div class="dropdown-divider"></div>
 								<a href="/logout" class="btn btn-outline-danger w-100">Выход</a>

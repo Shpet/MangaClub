@@ -3,22 +3,17 @@
 ?>
 
 	<link rel="stylesheet" href="/view/css/register.css">
-
 <?php
-	if($res):
-		?>
-		<h3 class="success">Удаление успешно</h3>
-		<?php
-		else:
-		?>
-			<h3 class="denied"><?=$errors ?></h3>
-	<?php
-	endif;
+	if(!$res && $name != ''):
 ?>
+		<h1 class="denied">Имя "<?=$name ?>" не найдено</h1>
+		<?php
+		endif;
+		?>
 	<div class="container">
 
 		<form action="#" method="post" id="main_form">
-			<h1>Удаление</h1>
+			<h1>Изменение</h1>
 			<div class="row">
 				<div class="col-4 pr-0">
 					<label for="name">Название манги: </label>
@@ -29,7 +24,7 @@
 			</div>
 			<div class="row">
 				<div class="col-7 offset-4">
-					<input name="del" type="submit" value="Удалить" class="btn btn-danger w-100 mt-3">
+					<input name="update" type="submit" value="Сохранить изменения" class="btn btn-light w-100 mt-3">
 				</div>
 			</div>
 		</form>

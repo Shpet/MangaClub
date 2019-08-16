@@ -23,9 +23,12 @@
 
 			return true;
 		}
-		public function actionUpdate(){
+		public function actionUpdate($id){
 
-			return true;
+			User::checkAdmin();
+
+			$book = Book::getBookById($id);
+			header('Location: /admin/update/'.$book['name_book']);
 		}
 		public function actionDelete($id){
 
@@ -42,16 +45,81 @@
 			$data = $_POST;
 			$name = '';
 			$res = false;
+			$errors = '';
 			if(isset($data['del'])){
 				$name = $data['name'];
+				if(Book::checkNameBookExists($name)){
+					$res = Book::deleteBookByName($name);
+				}
+				else{
+					$errors = 'Неправильное имя';
+				}
 			}
-			if($name){
-				$res = Book::deleteBookByName($name);
-			}
+
 
 			require_once (ROOT.'/view/page/admin/delete.php');
 			return true;
 		}
+
+		public function actionAdminUpdate(){
+
+			User::checkAdmin();
+			$data = $_POST;
+			$name = '';
+			$res = false;
+			if(isset($data['update'])){
+				$name = $data['name'];
+				if(Book::checkNameBookExists($name))
+					header('Location: /admin/update/'.$name);
+			}
+
+
+			require_once(ROOT . '/view/page/admin/update.php');
+			return true;
+		}
+
+		public function actionAdminUpdateByName($name){
+
+			User::checkAdmin();
+
+			$data = $_POST;
+			$res = false;
+			$errors = '';
+			$book = Book::getBookByName($name);
+			$id = $book['id_book'];
+			$name = $book['name_book'];
+			$author = $book['author'];
+			if($book['ongoing'] == 'да') $ongoing = '1';
+			else $ongoing = '0';
+			$year = $book['b_year'];
+			$description = $book['b_description'];
+
+			if(isset($data['saveUpdate']))
+			{
+				if($data['name'])
+				{
+					$name = $data['name'];
+
+					if(!Book ::checkNameBookExists($name))
+					{
+						$errors = 'Такое имя уже есть';
+					}
+				}
+				if($data['author']) $author = $data['author'];
+				if($data['ongoing']) $ongoing = $data['ongoing'];
+				if($data['year']) $year = $data['year'];
+				if($data['description']) $description = $data['description'];
+
+				if($errors){
+					Book::updateBookById($id, $name, $author, $ongoing, $year, $description);
+					$res = true;
+				}
+			}
+
+			require_once(ROOT . '/view/page/admin/updateByName.php');
+			return true;
+		}
+
 
 
 

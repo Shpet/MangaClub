@@ -87,6 +87,7 @@
 			return true;
 		}
 
+
 		public static function checkLogged(){
 
 			if(isset($_SESSION['user'])){
@@ -153,5 +154,16 @@
 				return true;
 			}
 			die('<h1 style="color: red; text-align: center">Access denied</h1>');
+		}
+
+		// for header navbar
+		public static function isAdmin(){
+			$userId = self::checkLogged();
+			$user = self::getUserById($userId);
+
+			if($user['admin']){
+				return true;
+			}
+			return false;
 		}
 	}
