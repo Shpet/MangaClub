@@ -1,0 +1,13 @@
+.container{
+    height: 100%;
+}
+ul.panel{
+    margin-top: 1em;
+    padding-left: 0;
+    width: 15%;
+    list-style: none;
+}
+ul.panel li a{
+    margin: .5em 0;
+    width: 100%;
+}

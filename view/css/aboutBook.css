@@ -1,3 +1,23 @@
+h2{
+    text-align: justify;
+}
+h2 a i{
+    font-size: .7em;
+    float: right;
+    padding: 0 .5em;
+}
+h2 a .fa-trash-alt{
+    color: #c20400;
+}
+h2 a .fa-trash-alt:hover{
+    color: #a00400;
+}
+h2 a .fa-pen{
+    color: #5656f0;
+}
+h2 a .fa-pen:hover{
+    color: #4343b7;
+}
 a{
     color: black;
 }

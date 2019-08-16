@@ -143,4 +143,48 @@
 
 			return $bookItem;
 		}
+
+
+
+
+		public static function deleteBookById($id){
+			$db = Db::getConnection();
+
+			$sql = 'DELETE FROM book WHERE id_book = :id';
+
+			$res = $db->prepare($sql);
+			$res->bindParam(':id', $id, PDO::PARAM_INT);
+
+			return $res->execute();
+		}
+		public static function deleteBookByName($name){
+			$db = Db::getConnection();
+
+			$sql = 'DELETE FROM book WHERE name_book = :name_b';
+
+			$res = $db->prepare($sql);
+			$res->bindParam(':name_b', $name, PDO::PARAM_STR);
+
+			return $res->execute();
+		}
+
+
+		public static function addBook($name, $author, $ongoing, $description, $year)
+		{
+			User::checkAdmin();
+
+			$db = Db::getConnection();
+
+			$sql = 'INSERT INTO `book`( `name_book`, `author`, `ongoing`, `b_description`, `$b_year`)'.
+				   ' VALUES (:name_book, :author, :ongoing, :b_description, :$b_year)';
+
+			$result = $db->prepare($sql);
+			$result->bindParam(':name_book', $name, PDO::PARAM_STR);
+			$result->bindParam(':author', $author, PDO::PARAM_STR);
+			$result->bindParam(':ongoing', $ongoing, PDO::PARAM_INT);
+			$result->bindParam(':b_description', $description, PDO::PARAM_STR);
+			$result->bindParam(':$b_year', $year, PDO::PARAM_STR);
+
+			return $result->execute();
+		}
 	}

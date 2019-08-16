@@ -84,9 +84,9 @@
 									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Аккаунт</a>
 							<div class="dropdown-menu" aria-labelledby="dropdownAccount">
 
-								<a href="profile" class="btn btn-outline-info w-100">Профиль</a>
+								<a href="/profile" class="btn btn-outline-info w-100">Профиль</a>
 								<div class="dropdown-divider"></div>
-								<a href="logout" class="btn btn-outline-danger w-100">Выход</a>
+								<a href="/logout" class="btn btn-outline-danger w-100">Выход</a>
 
 							</div>
 						</div>
@@ -113,7 +113,7 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<form action="signIn" method="post">
+					<form action="/signIn" method="post">
 						<div class="row">
 							<div class="col-3">
 								<div class="row p-3">
@@ -154,7 +154,7 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<form action="register" method="post">
+					<form action="/register" method="post">
 						<div class="row">
 							<div class="col-5">
 								<div class="row p-3">

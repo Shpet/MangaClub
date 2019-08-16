@@ -2,6 +2,7 @@
 	include ROOT.'/view/layouts/header.php';
 ?>
 <script src="/Resource/library/jquery.fancybox.min.js" defer></script>
+<script src="/view/js/aboutBook.js" defer></script>
 
 <link rel="stylesheet" href="/view/css/aboutBook.css">
 <link rel="stylesheet" href="/Resource/library/jquery.fancybox.min.css">
@@ -13,7 +14,10 @@
 			<img src="<?=$bookItem['b_path_logo_big'] ?>" alt="<?=$bookItem['name_book']  ?>">
 		</div>
 		<div class="col-7 pl-0">
-			<h2 class="my-3"><?=$bookItem['name_book'] ?> </h2>
+			<h2 class="my-3"><?=$bookItem['name_book'] ?>
+				<a id="deleteBook" href="delete/<?=$bookItem['id_book'] ?>"><i class="fas fa-trash-alt"></i></a>
+				<a id="updateBook" href="#"><i class="fas fa-pen"></i></a>
+			</h2>
 			<p class="h5"><b>Автор:</b> <?=$bookItem['author'] ?></p>
 			<p class="h5"><b>Год выхода:</b> <?=$bookItem['b_year'] ?></p>
 			<p class="h5"><b>Жанр: </b><span class="text-lowercase"><?=$bookItem['genre'] ?></span> </p>

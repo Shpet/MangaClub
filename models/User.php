@@ -144,4 +144,14 @@
 			return false;
 		}
 
+
+		public static function checkAdmin(){
+			$userId = self::checkLogged();
+			$user = self::getUserById($userId);
+
+			if($user['admin']){
+				return true;
+			}
+			die('<h1 style="color: red; text-align: center">Access denied</h1>');
+		}
 	}
