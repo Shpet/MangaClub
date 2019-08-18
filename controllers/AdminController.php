@@ -82,17 +82,23 @@
 
 			User::checkAdmin();
 
+			$name = str_replace("%20", " ", $name);
+
 			$data = $_POST;
 			$res = false;
 			$errors = '';
+
 			$book = Book::getBookByName($name);
+
 			$id = $book['id_book'];
 			$name = $book['name_book'];
 			$author = $book['author'];
-			if($book['ongoing'] == 'да') $ongoing = '1';
-			else $ongoing = '0';
 			$year = $book['b_year'];
 			$description = $book['b_description'];
+			$genre = $book['genre'];
+			if($book['ongoing'] == 'да') $ongoing = '1';
+			else $ongoing = '0';
+
 
 			if(isset($data['saveUpdate']))
 			{
@@ -100,7 +106,7 @@
 				{
 					$name = $data['name'];
 
-					if(!Book ::checkNameBookExists($name))
+					if(Book::checkNameBookExists($name))
 					{
 						$errors = 'Такое имя уже есть';
 					}
@@ -109,10 +115,18 @@
 				if($data['ongoing']) $ongoing = $data['ongoing'];
 				if($data['year']) $year = $data['year'];
 				if($data['description']) $description = $data['description'];
+				if(isset($data['genre'])) $genre = $data['genre'];
+				else{
+					$genre = false;
+				}
 
-				if($errors){
-					Book::updateBookById($id, $name, $author, $ongoing, $year, $description);
-					$res = true;
+				if($errors == ''){
+					$res = Book::updateBookById($id, $name, $author, $ongoing, $year, $description);
+					if($genre)
+					{
+						Book ::delForUpdateGenre($id);
+						Book ::updateGenre($id, $genre);
+					}
 				}
 			}
 

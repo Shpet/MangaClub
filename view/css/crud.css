@@ -1,8 +1,11 @@
-.container{
-    height: 100%;
+.container {
     display: flex;
-    align-items: center;
     justify-content: center;
+}
+.container:not(.update){
+    height: 100%;
+
+    align-items: center;
 }
 h1{
     text-align: center;
@@ -24,7 +27,10 @@ form#main_form input, label, select, textarea{
 textarea{
     width: 100%;
 }
-
+.row_genre div:first-child{
+    display: flex;
+    align-items: center;
+}
 ul li {
     list-style: none;
     color: yellow;

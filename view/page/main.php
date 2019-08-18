@@ -28,9 +28,10 @@ include ROOT.'/view/layouts/header.php';
 							if($count > 5)
 							{
 								// 12 = 2 слайда
-								for($i = $count; $i < 12; $i++)
+								for($i = 0; $i < 12-$count; $i++)
 								{
-									$newBook2[$i] = $newBook[$i];
+									$newBook2[$i] = $newBook[$count];
+									$count++;
 								}
 								break;
 							}

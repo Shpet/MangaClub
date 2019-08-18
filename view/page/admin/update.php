@@ -24,7 +24,7 @@
 			</div>
 			<div class="row">
 				<div class="col-7 offset-4">
-					<input name="update" type="submit" value="Сохранить изменения" class="btn btn-light w-100 mt-3">
+					<input name="update" type="submit" value="Измененить" class="btn btn-light w-100 mt-3">
 				</div>
 			</div>
 		</form>

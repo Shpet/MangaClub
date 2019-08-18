@@ -37,14 +37,17 @@
 			//подключение к бд
 			$db = Db ::getConnection();
 
-			$result = $db -> query("SELECT *, GROUP_CONCAT(genre.name_genre ORDER BY genre.name_genre SEPARATOR ', ') as genre 
+			$sql = "SELECT *, GROUP_CONCAT(genre.name_genre ORDER BY genre.name_genre SEPARATOR ', ') as genre 
 											FROM book 
 											JOIN book_genre ON book.id_book = book_genre.id_book_bg 
 											JOIN genre on book_genre.id_genre_bg = genre.id_genre 
-											where name_book = '$name'");
+											where name_book = :name_b";
+			$result = $db -> prepare($sql);
+			$result->bindParam(':name_b', $name, PDO::PARAM_STR);
 
-			$bookItem = $result -> fetch();
+			$result -> execute();
 
+			$bookItem = $result->fetch();
 			if($bookItem['ongoing']) $bookItem['ongoing'] = 'да';
 			else
 				$bookItem['ongoing'] = 'нет';
@@ -216,21 +219,53 @@
 			$db = Db ::getConnection();
 
 			$sql = 'UPDATE book ' .
-				   ' SET name_book = :name, author = :author, ongoing = :ongoing, b_year = :year, b_description = :description' .
-				   ' WHERE id_book = :id';
+				   'SET name_book = :name, author = :author, ongoing = :ongoing, b_year = :year, b_description = :description ' .
+				   'WHERE id_book = :id';
 
-			$res = $db -> prepare($sql);
-			$res -> bindParam(':id', $id, PDO::PARAM_INT);
-			$res -> bindParam(':name', $name, PDO::PARAM_STR);
-			$res -> bindParam(':author', $author, PDO::PARAM_STR);
-			$res -> bindParam(':ongoing', $ongoing, PDO::PARAM_INT);
-			$res -> bindParam(':year', $year, PDO::PARAM_STR);
-			$res -> bindParam(':description', $description, PDO::PARAM_STR);
+			$upd = $db -> prepare($sql);
 
-			return $res -> execute();
+			$upd -> bindParam(':id', $id, PDO::PARAM_INT);
+			$upd -> bindParam(':name', $name, PDO::PARAM_STR);
+			$upd -> bindParam(':author', $author, PDO::PARAM_STR);
+			$upd -> bindParam(':ongoing', $ongoing, PDO::PARAM_INT);
+			$upd -> bindParam(':year', $year, PDO::PARAM_STR);
+			$upd -> bindParam(':description', $description, PDO::PARAM_STR);
+
+			return $upd -> execute();
 
 		}
+		public static function delForUpdateGenre($id){
 
+			$db = Db::getConnection();
+
+			$sql = 'DELETE from book_genre '.
+					   'WHERE id_book_bg = :id_book';
+			$del = $db -> prepare($sql);
+			$del->bindParam(':id_book', $id, PDO::PARAM_INT);
+
+			return $del->execute();
+
+		}
+		public static function updateGenre($id, $genre){
+
+			$db = Db::getConnection();
+
+			$res = false;
+			$sql = 'INSERT INTO book_genre (id_book_bg, id_genre_bg) '.
+				   'VALUES (:id_book, :id_genre)';
+			foreach($genre as $item)
+			{
+				$upd_genre = $db -> prepare($sql);
+
+				$upd_genre -> bindParam(':id_book', $id, PDO::PARAM_INT);
+				$upd_genre -> bindParam(':id_genre', $item, PDO::PARAM_INT);
+
+				$res = $upd_genre->execute();
+			}
+
+			return $res;
+
+		}
 		public static function addBook($name, $author, $ongoing, $description, $year)
 		{
 			User ::checkAdmin();
