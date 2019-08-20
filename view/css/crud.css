@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
 }
-.container:not(.update){
+.container.delete{
     height: 100%;
 
     align-items: center;
@@ -27,6 +27,9 @@ form#main_form input, label, select, textarea{
 textarea{
     width: 100%;
 }
+input[type='checkbox']{
+    transform: scale(1.5);
+}
 .row_genre div:first-child{
     display: flex;
     align-items: center;
@@ -35,4 +38,8 @@ ul li {
     list-style: none;
     color: yellow;
     font-weight: bolder;
+}
+.col-7{
+    display: flex;
+    align-items: center;
 }

@@ -6,21 +6,61 @@
 
 
 	<div class="container update">
-		<form action="#" method="post" id="main_form">
+		<form action="#" method="post" id="main_form" enctype="multipart/form-data">
 
 			<?php
 				$selected = '';
-				if($res):
-					?>
-					<h3 class="success">Обновление успешно</h3>
-
-				<?php
-				else:
-			?>
+				?>
 			<h1>Изменение</h1>
-					<?php
-					endif;
-					?>
+
+			<div class="row">
+				<div class="col-4 pr-0">
+					<label for="addTom">Добавить новый том: </label>
+				</div>
+				<div class="col-7">
+					<input type="checkbox" name="addTom" id="addTom" value="1">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-4 pr-0">
+					<label for="addChapter">Добавить главу: </label>
+				</div>
+				<div class="col-7">
+					<input type="checkbox" name="addChapter" id="addChapter" value="1">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-4 pr-0">
+					<label for="addFile">Добавить страницы: </label>
+				</div>
+				<div class="col-7">
+					<input type="file" multiple name="content[]" accept="image/*">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-4 pr-0">
+					<label for="addArts">Добавить арты: </label>
+				</div>
+				<div class="col-7">
+					<input type="file" multiple name="arts[]" accept="image/*">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-4 pr-0">
+					<label for="logo">Изменить логотип: </label>
+				</div>
+				<div class="col-7">
+					<input type="file" id="logo" name="logo" accept="image/jpeg">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-4 pr-0">
+					<label for="logoBig">Изменить логотип(Высота 300px): </label>
+				</div>
+				<div class="col-7">
+					<input type="file" id="logoBig" name="logoBig" accept="image/jpeg">
+				</div>
+			</div>
 			<div class="row">
 				<div class="col-4 pr-0">
 					<label for="name">Название: </label>
@@ -68,13 +108,13 @@
 				<div class="col-7">
 					<select name="ongoing" id="ongoing">
 						<?php
-							if(!$book['ongoing'])
+							if(!$ongoing)
 								$selected = 'selected';
 						?>
 						<option value="0" <?=$selected ?>>Нет</option>
 						<?php
 							$selected = '';
-							if($book['ongoing'])
+							if($ongoing)
 								$selected = 'selected';
 						?>
 						<option value="1" <?=$selected ?>>Да</option>
@@ -105,10 +145,13 @@
 			</div>
 		</form>
 		<?php
-			if($errors && !$res):
+			if($errors):
 				?>
 				<ul class="col-3">
-						<li><?= $errors ?></li>
+					<?php
+						foreach($errors as  $item)
+							echo'<li>'.$item.'</li>';
+					?>
 				</ul>
 
 			<?php

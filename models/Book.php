@@ -31,6 +31,21 @@
 			return $bookItem;
 		}
 
+		public static function getBookIdByName($name){
+			$name = strval($name);
+			//подключение к бд
+			$db = Db ::getConnection();
+
+			$sql = "SELECT id_book FROM book where name_book = :name_b";
+			$result = $db -> prepare($sql);
+			$result->bindParam(':name_b', $name, PDO::PARAM_STR);
+
+			$result -> execute();
+
+			$id = $result->fetch();
+
+			return $id['id_book'];
+		}
 		public static function getBookByName($name)
 		{
 			$name = strval($name);
@@ -212,7 +227,6 @@
 		}
 
 
-
 		public static function updateBookById($id, $name, $author, $ongoing, $year, $description)
 		{
 
@@ -234,6 +248,7 @@
 			return $upd -> execute();
 
 		}
+
 		public static function delForUpdateGenre($id){
 
 			$db = Db::getConnection();
@@ -246,13 +261,14 @@
 			return $del->execute();
 
 		}
+
 		public static function updateGenre($id, $genre){
 
 			$db = Db::getConnection();
 
 			$res = false;
-			$sql = 'INSERT INTO book_genre (id_book_bg, id_genre_bg) '.
-				   'VALUES (:id_book, :id_genre)';
+			$sql = "INSERT INTO book_genre (id_book_bg, id_genre_bg)".
+				   " VALUES (:id_book, :id_genre)";
 			foreach($genre as $item)
 			{
 				$upd_genre = $db -> prepare($sql);
@@ -262,25 +278,29 @@
 
 				$res = $upd_genre->execute();
 			}
-
 			return $res;
 
 		}
-		public static function addBook($name, $author, $ongoing, $description, $year)
+
+
+		public static function addBook($name, $author, $ongoing, $year, $description, $path_logo, $path_big_logo, $path_content)
 		{
 			User ::checkAdmin();
 
 			$db = Db ::getConnection();
 
-			$sql = 'INSERT INTO `book`( `name_book`, `author`, `ongoing`, `b_description`, `$b_year`)' .
-				   ' VALUES (:name_book, :author, :ongoing, :b_description, :$b_year)';
+			$sql = 'INSERT INTO book( name_book, author, ongoing, b_description, b_year, b_path_logo, b_path_logo_big, b_path_content)' .
+				   ' VALUES (:name_book, :author, :ongoing, :b_description, :b_year, :path_logo, :path_logo_big, :path_content)';
 
 			$result = $db -> prepare($sql);
 			$result -> bindParam(':name_book', $name, PDO::PARAM_STR);
 			$result -> bindParam(':author', $author, PDO::PARAM_STR);
 			$result -> bindParam(':ongoing', $ongoing, PDO::PARAM_INT);
 			$result -> bindParam(':b_description', $description, PDO::PARAM_STR);
-			$result -> bindParam(':$b_year', $year, PDO::PARAM_STR);
+			$result -> bindParam(':b_year', $year, PDO::PARAM_STR);
+			$result -> bindParam(':path_logo', $path_logo, PDO::PARAM_STR);
+			$result -> bindParam(':path_logo_big', $path_big_logo, PDO::PARAM_STR);
+			$result -> bindParam(':path_content', $path_content, PDO::PARAM_STR);
 
 			return $result -> execute();
 		}

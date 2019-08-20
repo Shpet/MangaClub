@@ -17,7 +17,7 @@
 ?>
 	<div class="container">
 
-		<form action="#" method="post" id="main_form">
+		<form action="#" method="post" id="main_form" class="delete">
 			<h1>Удаление</h1>
 			<div class="row">
 				<div class="col-4 pr-0">
