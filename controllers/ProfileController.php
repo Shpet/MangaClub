@@ -38,7 +38,29 @@
 				if($data['pass']){
 					$pass = $data['pass'];
 				}
-				if($data['sex']) $sex = $data['sex'];
+				if($_FILES['avatar']['size'] > 0)
+				{
+					$name_file = $userId . '.jpg';
+					$structure = ROOT . '/view/img/user_avatar/';
+
+
+					if(is_uploaded_file($_FILES['avatar']['tmp_name']))
+					{
+
+						$uploads_dir = $structure;
+						$error = $_FILES["avatar"]["error"];
+
+						if($error == UPLOAD_ERR_OK)
+						{
+							$tmp_name = $_FILES["avatar"]["tmp_name"];
+							move_uploaded_file($tmp_name, "$uploads_dir/$name_file");
+							$u_path_avatar = '/view/img/user_avatar/' . $name_file;
+						}
+					}
+					else
+						$errors[] = 'Не удалось загрузить аватар';
+				}
+				if(isset($data['sex'])) $sex = $data['sex'];
 				if($data['birthday']) $birthday = $data['birthday'];
 				if($data['u_description']) $description = $data['u_description'];
 
@@ -52,7 +74,7 @@
 				}
 				if($errors == false){
 					$pass = password_hash($pass, PASSWORD_DEFAULT);
-					$result = User::edit($userId, $nick, $pass, $sex, $birthday, $description);
+					$result = User::edit($userId, $nick, $pass, $sex, $birthday, $description, $u_path_avatar);
 				}
 			}
 			require_once(ROOT . '/view/page/editProfile.php');

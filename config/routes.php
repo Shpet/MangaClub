@@ -2,8 +2,10 @@
 	//запрос => класс/метод/параметры
 	return array('' => 'Main/MainPage',
 				 // books
+				 "search" => 'Book/AdvancedSearch',
+				 'advancedSearch' => 'Book/AdvancedSearch',
 				 'newBook' => 'Book/NewBook',
-				 "book/([0-9]+)" => "Book/BookIndex/$1",
+				 "book/([0-9]+)/about" => "Book/BookIndex/$1",
 				 "book/([0-9]+)/read" => "Book/ReadBook/$1",
 				 "book/([0-9]+)/chapter(.+)" => "Book/SelectChapter/$1/$2",
 				 "book/([0-9]+)/img_content(.+)" => "Book/CreateContent/$1",
@@ -22,4 +24,10 @@
 				 "admin/update/(.+)" => "Admin/AdminUpdateByName/$1",
 				 "book/update/([0-9]+)" => "Admin/Update/$1",
 				 "book/delete/([0-9]+)" => "Admin/Delete/$1",
+
+				 //likes
+				 "incrementLike(.+)" => "Book/IncrementLikes",
+				 "book/([0-9]+)/incrementLike(.+)" => "Book/IncrementLikes",
+				 "book/([0-9]+)/incrementDislike(.+)" => "Book/IncrementDislikes",
+				 "incrementDislike(.+)" => "Book/IncrementDislikes",
 				 ".+" => 'Main/MainPage');

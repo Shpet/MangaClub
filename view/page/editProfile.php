@@ -16,7 +16,7 @@
 
 
 
-		<form action="#" method="post" id="main_form" class="w-auto">
+		<form action="#" method="post" id="main_form" class="w-auto" enctype="multipart/form-data">
 			<h1>Редактирование данных</h1>
 			<div class="row">
 				<div class="col-5">
@@ -24,7 +24,10 @@
 						<label for="nick">Nickname:</label>
 					</div>
 					<div class="row ">
-						<label for="pass_registr">Пароль:</label>
+						<label for="pass">Пароль:</label>
+					</div>
+					<div class="row ">
+						<label for="avatar">Аватар:</label>
 					</div>
 					<div class="row">
 						<label>
@@ -44,6 +47,9 @@
 					</div>
 					<div class="row ">
 						<input class="w-100" id="pass" name="pass" type="password">
+					</div>
+					<div class="row ">
+						<input class="w-100" id="avatar" name="avatar" type="file" accept="image/*">
 					</div>
 					<div class="row">
 						<?php

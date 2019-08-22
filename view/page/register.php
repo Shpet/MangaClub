@@ -9,9 +9,7 @@
 	<?php
 		if($result):
 			?>
-			<meta http-equiv="refresh" content="0;url=/">
-			<div>Register success</div>
-
+			<h1 class="success">Register success</h1>
 		<?php
 		else:
 			?>

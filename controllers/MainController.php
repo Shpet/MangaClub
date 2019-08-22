@@ -11,9 +11,11 @@
 		public function actionMainPage(){
 			$newBook = BOOk::getNewBooks();
 			$popularBook = BOOK::getPopularBook();
+			$countLikes = Book::countOfFullLikes();
+			$countDislikes = Book::countOfFullDislikes();
 
 			require_once (ROOT.'/view/page/main.php');
-
 			return true;
 		}
+
 	}

@@ -35,4 +35,14 @@
 .col-6 a:hover{
     color: #bdb7ba;
 }
+.rating a i{
+    font-size: 1.1em;
+    margin-left: .5em;
+}
+.success{
+    color: #00d611;
+}
+.denied{
+    color:#d60007;
+}
 

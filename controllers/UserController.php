@@ -32,9 +32,7 @@
 				else
 				{
 					User ::addInSession($userId);
-					?>
-					<meta http-equiv="refresh" content="0;url=/">
-					<?php
+					header('Location: /');
 				}
 			}
 			require_once(ROOT . '/view/page/profile.php');
@@ -97,6 +95,11 @@
 					if($birthday == '') $birthday = NULL;
 					$pass = password_hash($pass, PASSWORD_DEFAULT);
 					$result = User ::registerUser($nick, $email, $pass, $sex, $birthday);
+					if($result){
+						$userId = User::checkUserData($email, $pass);
+						User ::addInSession($userId);
+						header('Location: /');
+					}
 				}
 			}
 

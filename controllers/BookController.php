@@ -8,19 +8,44 @@
 
 	class bookController
 	{
+
+		public function actionAdvancedSearch(){
+
+			$data = $_POST;
+			$name = '';
+
+			if(isset($data['search'])){
+				$Mname= $data['name'];
+
+				$bookList = Book::searchByName($Mname);
+			}
+			if(isset($data['searchName'])){
+				$name= $data['name'];
+			}
+			if(isset($data['searchGenre'])){
+				$genre= $data['genre	'];
+			}
+			if(isset($data['searchAuthor'])){
+				$author= $data['author'];
+			}
+			if(isset($data['searchYear'])){
+				$year= $data['year'];
+			}
+
+
+
+			require_once (ROOT.'/view/page/advancedSearch.php');
+			return  true;
+		}
 		public function actionNewBook()
 		{
 
 			$newBook = BOOk ::getNewBooks();
+			$countLikes = Book::countOfFullLikes();
+			$countDislikes = Book::countOfFullDislikes();
 
 			require_once(ROOT . '/view/page/newBook.php');
 
-			return true;
-		}
-
-		public function actionPopularBook()
-		{
-			require_once(ROOT . '/view/page/aboutBook.php');
 			return true;
 		}
 
@@ -50,35 +75,35 @@
 			$numChapter = $_GET['chapter'];
 			$numToms = $_GET['tom'];
 
-			$directory = $bookItem['b_path_content'].$numToms.'\\'.$numChapter.'\\';    // Папка с изображениями
-			$directory = str_replace('/', '\\', substr($directory,1));
-			$allowed_types=array("jpg", "png", "gif");  //разрешеные типы изображений
+			$directory = $bookItem['b_path_content'] . $numToms . '\\' . $numChapter . '\\';    // Папка с изображениями
+			$directory = str_replace('/', '\\', substr($directory, 1));
+			$allowed_types = array("jpg", "png", "gif");  //разрешеные типы изображений
 			$file_parts = array();
 			$result = '';
 
-			$ext='';
-			$title='';
-			$i=0;
+			$ext = '';
+			$title = '';
+			$i = 0;
 			//пробуем открыть папку
-			$dir_handle = @opendir($directory) or die("Не удалось открыть: ".$directory);
-			while ($file = readdir($dir_handle))    //поиск по файлам
+			$dir_handle = @opendir($directory) or die("Не удалось открыть: " . $directory);
+			while($file = readdir($dir_handle))    //поиск по файлам
 			{
-				if($file=="." || $file == "..") continue;  //пропустить ссылки на другие папки
-				$file_parts = explode(".",$file);          //разделить имя файла и поместить его в массив
+				if($file == "." || $file == "..") continue;  //пропустить ссылки на другие папки
+				$file_parts = explode(".", $file);          //разделить имя файла и поместить его в массив
 				$ext = strtolower(array_pop($file_parts));   //последний элеменет - это расширение
-				$path = '/'.str_replace('\\', '/',$directory.$file);
+				$path = '/' . str_replace('\\', '/', $directory . $file);
 
-				if(in_array($ext,$allowed_types))
+				if(in_array($ext, $allowed_types))
 				{
-					$result = $result.'
+					$result = $result . '
 <div class="col-md-2">
 					<div class="card bg-secondary mb-4 box-shadow">
-						<a data-fancybox="gallery" href="'.$path.'">
+						<a data-fancybox="gallery" href="' . $path . '">
 							<img
 									class="card-img-top"
 									data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
-									alt="'.$file.'" style="height: auto;  display: block;"
-									src="'.$path.'" data-holder-rendered="true">
+									alt="' . $file . '" style="height: auto;  display: block;"
+									src="' . $path . '" data-holder-rendered="true">
 						</a>
 					</div>
 				</div>
@@ -109,25 +134,29 @@
 		public function actionBookIndex($id)
 		{
 			$bookItem = Book ::getBookById($id);
+
+			$countLikes = Book::countOfLikes($id);
+			$countDislikes = Book::countOfDislikes($id);
+
 			$arts = array();
 
-			$directory = $bookItem['b_path_content'].'Arts/';    // Папка с изображениями
-			$directory = str_replace('/', '\\', substr($directory,1));
-			$allowed_types=array("jpg", "png", "gif");  //разрешеные типы изображений
+			$directory = $bookItem['b_path_content'] . 'Arts/';    // Папка с изображениями
+			$directory = str_replace('/', '\\', substr($directory, 1));
+			$allowed_types = array("jpg", "png", "gif");  //разрешеные типы изображений
 			$file_parts = array();
 
-			$ext='';
-			$i=0;
+			$ext = '';
+			$i = 0;
 			//пробуем открыть папку
-			$dir_handle = @opendir($directory) or die("Не удалось открыть: ".$directory);
-			while ($file = readdir($dir_handle))    //поиск по файлам
+			$dir_handle = @opendir($directory) or die("Не удалось открыть: " . $directory);
+			while($file = readdir($dir_handle))    //поиск по файлам
 			{
-				if($file=="." || $file == "..") continue;  //пропустить ссылки на другие папки
-				$file_parts = explode(".",$file);          //разделить имя файла и поместить его в массив
+				if($file == "." || $file == "..") continue;  //пропустить ссылки на другие папки
+				$file_parts = explode(".", $file);          //разделить имя файла и поместить его в массив
 				$ext = strtolower(array_pop($file_parts));   //последний элеменет - это расширение
-				$path = '/'.str_replace('\\', '/',$directory.$file);
+				$path = '/' . str_replace('\\', '/', $directory . $file);
 
-				if(in_array($ext,$allowed_types))
+				if(in_array($ext, $allowed_types))
 				{
 					$arts[$i] = $path;
 					$i++;
@@ -141,4 +170,68 @@
 
 			return true;
 		}
+
+		public function actionIncrementLikes()
+		{
+			if(User ::isGuess())
+			{
+				print false;
+				return true;
+			}
+			else{
+				$id_book = $_GET['id'];
+				$id_user = User::checkLogged();
+
+				$active =!Book::isUserLike($id_book, $id_user);
+				if($active){
+					Book::incrementlike($id_book, $id_user);
+
+					$activeDis =Book::isUserDislike($id_book, $id_user);
+					if($activeDis){
+						Book::decrementDislike($id_book, $id_user);
+					}
+				}
+				else{
+					Book::decrementlike($id_book, $id_user);
+				}
+
+				$res = Book::countOfLikes($id_book).' '. Book::countOfDislikes($id_book);
+
+				print_r($res);
+				return true;
+			}
+
+		}
+
+		public function actionIncrementDislikes()
+		{
+			if(User ::isGuess())
+			{
+				print false;
+				return true;
+			}
+			else{
+				$id_book = $_GET['id'];
+				$id_user = User::checkLogged();
+
+				$active =!Book::isUserDislike($id_book, $id_user);
+				if($active){
+					Book::incrementdislike($id_book, $id_user);
+
+					$activeLike =Book::isUserLike($id_book, $id_user);
+					if($activeLike){
+						Book::decrementLike($id_book, $id_user);
+					}
+				}
+				else{
+					Book::decrementdislike($id_book, $id_user);
+				}
+				$res = Book::countOfDislikes($id_book).' '. Book::countOfLikes($id_book);
+
+				print_r($res);
+				return true;
+			}
+
+		}
+
 	}

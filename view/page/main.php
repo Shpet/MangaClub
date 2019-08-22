@@ -1,10 +1,10 @@
 <?php
-include ROOT.'/view/layouts/header.php';
+	include ROOT . '/view/layouts/header.php';
 ?>
 
 
 <div class="content">
-<!--	полоса недавно добавленных-->
+	<!--	полоса недавно добавленных-->
 	<section>
 		<div id="recently_added" class="carousel slide" data-interval="7000" data-ride="carousel">
 			<div class="carousel-inner">
@@ -19,7 +19,7 @@ include ROOT.'/view/layouts/header.php';
 
 							?>
 
-							<a href="/book/<?=$newBook[$i]['id_book'] ?>">
+							<a href="/book/<?= $newBook[$i]['id_book'] ?>/about">
 								<img src="<?= $newBook[$i]['b_path_logo'] ?>" alt="<?= $newBook[$i]['name_book'] ?>">
 							</a>
 
@@ -28,7 +28,7 @@ include ROOT.'/view/layouts/header.php';
 							if($count > 5)
 							{
 								// 12 = 2 слайда
-								for($i = 0; $i < 12-$count; $i++)
+								for($i = 0; $i < 12 - $count; $i++)
 								{
 									$newBook2[$i] = $newBook[$count];
 									$count++;
@@ -50,8 +50,9 @@ include ROOT.'/view/layouts/header.php';
 					<?php
 						foreach($newBook2 as $bookItem):
 							?>
-							<a href="/book/<?=$bookItem['id_book'] ?>">
-								<img src="<?= $bookItem['b_path_logo'] ?>" alt="<?= $bookItem['name_book'] ?>"
+							<a href="/book/<?= $bookItem['id_book'] ?>/about">
+								<img
+										src="<?= $bookItem['b_path_logo'] ?>" alt="<?= $bookItem['name_book'] ?>"
 										class="d-inline-flex">
 							</a>
 						<?php
@@ -71,24 +72,48 @@ include ROOT.'/view/layouts/header.php';
 				<div class="row ">
 					<?php
 						foreach($popularBook as $item):
-					?>
-					<div class="col-md-4">
-						<div class="card mb-4 box-shadow">
-							<img class="card-img-top" src="<?=$item['b_path_logo_big'] ?>" alt="Card image cap" width="300" >
-							<div class="card-body">
-								<h5 class="card-text"><?=$item['name_book'] ?></h5>
-								<p>Жанр: <?=$item['name_genre'] ?></p>
-								<div class="d-flex justify-content-between">
-									<div class="btn-group">
-										<a href="/book/<?=$item['id_book'] ?>/read" class="btn btn-outline-light">Читать</a>
-										<a href="book/<?=$item['id_book'] ?>" class="btn btn-outline-light">Подробнее</a>
+							?>
+							<div class="col-md-4">
+								<div class="card mb-4 box-shadow">
+									<img
+											class="card-img-top" src="<?= $item['b_path_logo_big'] ?>"
+											alt="Card image cap" height="515px">
+									<div class="card-body">
+										<h5 class="card-text"><?= $item['name_book'] ?></h5>
+										<p class="description">Описание: <?= $item['description'] ?></p>
+										<div class="d-flex justify-content-between">
+											<div class="btn-group">
+												<a
+														href="/book/<?= $item['id_book'] ?>/read"
+														class="btn btn-outline-light">Читать</a>
+												<a href="book/<?= $item['id_book'] ?>/about" class="btn btn-outline-light">Подробнее</a>
+											</div>
+											<span class="rating">
+										<a href="#" data-book-id="<?= $item['id_book'] ?>" class="like"><i
+													class="fas fa-thumbs-up success"></i></a> <span>
+											<?php
+												foreach($countLikes as $value)
+												{
+													if($value['id_book'] == $item['id_book']) echo($value['count']);
+												}
+											?>
+												</span>
+										<a href="#" data-book-id="<?= $item['id_book'] ?>" class="dislike"><i
+													class="fas fa-thumbs-down denied"></i></a> <span>
+													<?php
+														foreach($countDislikes as $value)
+														{
+															if($value['id_book'] ==
+															   $item['id_book']) echo($value['count']);
+														}
+													?>
+												</span>
+									</span>
+										</div>
 									</div>
-									<small>Рейтинг: <?=$item['b_rating']?></small>
 								</div>
 							</div>
-						</div>
-					</div>
-					<?php
+						<?php
 						endforeach;
 					?>
 				</div>
@@ -96,6 +121,8 @@ include ROOT.'/view/layouts/header.php';
 		</div>
 	</article>
 </div>
+<script src="/view/js/rating.js"></script>
+
 <?php
-	include ROOT.'/view/layouts/footer.php';
+	include ROOT . '/view/layouts/footer.php';
 ?>

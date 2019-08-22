@@ -43,11 +43,11 @@
 			return false;
 		}
 
-		public static function edit($userId, $nick, $pass, $sex, $birthday, $description){
+		public static function edit($userId, $nick, $pass, $sex, $birthday, $description, $u_path_avatar){
 			$db = Db::getConnection();
 
 			$sql = 'UPDATE user '.
-				   ' SET nickname = :nick, password = :pass, sex = :sex, u_birthday = :birthday, u_description = :description'.
+				   ' SET nickname = :nick, password = :pass, sex = :sex, u_birthday = :birthday, u_description = :description, u_path_avatar = :path_avatar'.
 				   ' WHERE id_user = :id';
 
 			$res = $db->prepare($sql);
@@ -57,6 +57,7 @@
 			$res -> bindParam(':sex', $sex, PDO::PARAM_STR);
 			$res -> bindParam(':birthday', $birthday, PDO::PARAM_STR);
 			$res -> bindParam(':description', $description, PDO::PARAM_STR);
+			$res -> bindParam(':path_avatar', $u_path_avatar, PDO::PARAM_STR);
 
 			return $res->execute();
 		}
@@ -145,7 +146,6 @@
 			return false;
 		}
 
-
 		public static function checkAdmin(){
 			$userId = self::checkLogged();
 			$user = self::getUserById($userId);
@@ -153,7 +153,7 @@
 			if($user['admin']){
 				return true;
 			}
-			die('<h1 style="color: red; text-align: center">Access denied</h1>');
+			return false;
 		}
 
 		// for header navbar
@@ -166,4 +166,6 @@
 			}
 			return false;
 		}
+
+
 	}

@@ -47,7 +47,7 @@
 					<a href="/" class="nav-link">Главная</a>
 				</li>
 				<li class="nav-item">
-					<a href="#" class="nav-link">Расширенный поиск</a>
+					<a href="/advancedSearch" class="nav-link">Расширенный поиск</a>
 				</li>
 				<li class="nav-item">
 					<a href="/newBook" class="nav-link">Новинки</a>
@@ -101,9 +101,9 @@
 					<?php
 					endif;
 				?>
-				<form class="form-inline ml-3">
-					<input type="search" placeholder="Поиск" class="form-control search_inp">
-					<button type="submit" class="btn btn-outline-success search_btn"><i
+				<form class="form-inline ml-3" action="/search" method="post">
+					<input type="search" name="name" placeholder="Поиск" required class="form-control search_inp">
+					<button type="submit" name="search" class="btn btn-outline-success search_btn"><i
 								class="fas fa-arrow-alt-circle-right"></i></button>
 				</form>
 			</div>
