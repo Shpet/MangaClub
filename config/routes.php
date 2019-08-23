@@ -22,8 +22,8 @@
 
 				 "admin/update" => "Admin/AdminUpdate",
 				 "admin/update/(.+)" => "Admin/AdminUpdateByName/$1",
-				 "book/update/([0-9]+)" => "Admin/Update/$1",
-				 "book/delete/([0-9]+)" => "Admin/Delete/$1",
+				 "update/([0-9]+)" => "Admin/Update/$1",
+				 "delete/([0-9]+)" => "Admin/Delete/$1",
 
 				 //likes
 				 "incrementLike(.+)" => "Book/IncrementLikes",

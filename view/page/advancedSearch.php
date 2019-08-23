@@ -29,17 +29,17 @@
 					<form action="#" method="post">
 						<label for="genre" class="col-2">По жанру</label>
 						<select name="genre" required id="genre" class="col-3">
-							<option value="1">Апокалиптика</option>
-							<option value="2">Боевые Искуства</option>
-							<option value="3">Детектив</option>
-							<option value="4">Добуцу</option>
-							<option value="5">Драма</option>
-							<option value="6">Киберпанк</option>
-							<option value="7">Комедия</option>
-							<option value="8">Меха</option>
-							<option value="10">Мистика</option>
-							<option value="11">Романтика</option>
-							<option value="12">Фэнтези</option>
+							<option value="Апокалиптика">Апокалиптика</option>
+							<option value="Боевые искусства">Боевые искусства</option>
+							<option value="Детектив">Детектив</option>
+							<option value="Добуцу">Добуцу</option>
+							<option value="Драма">Драма</option>
+							<option value="Киберпанк">Киберпанк</option>
+							<option value="Комедия">Комедия</option>
+							<option value="Меха">Меха</option>
+							<option value="Мистика">Мистика</option>
+							<option value="Романтика">Романтика</option>
+							<option value="Фэнтези">Фэнтези</option>
 						</select>
 						<input type="submit" name="searchGenre" class="btn-sm btn-info col-1" value="Искать">
 					</form>

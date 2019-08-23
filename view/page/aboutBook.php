@@ -16,8 +16,8 @@
 		<div class="col-7 pl-0">
 			<h2 class="my-3"><?= $bookItem['name_book'] ?>
 				<?php if(User ::checkAdmin()): ?>
-					<a id="deleteBook" href="delete/<?= $bookItem['id_book'] ?>"><i class="fas fa-trash-alt"></i></a>
-					<a id="updateBook" href="update/<?= $bookItem['id_book'] ?>"><i class="fas fa-pen"></i></a>
+					<a id="deleteBook" href="/delete/<?= $bookItem['id_book'] ?>"><i class="fas fa-trash-alt"></i></a>
+					<a id="updateBook" href="/update/<?= $bookItem['id_book'] ?>"><i class="fas fa-pen"></i></a>
 				<?php
 				endif;
 				?>

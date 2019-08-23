@@ -21,15 +21,21 @@
 			}
 			if(isset($data['searchName'])){
 				$name= $data['name'];
+				$bookList = Book::searchByName($name);
 			}
 			if(isset($data['searchGenre'])){
-				$genre= $data['genre	'];
+				$genre= $data['genre'];
+				$bookList = Book::searchByGenre($genre);
 			}
 			if(isset($data['searchAuthor'])){
 				$author= $data['author'];
+				$bookList = Book::searchByAuthor($author);
+
 			}
 			if(isset($data['searchYear'])){
 				$year= $data['year'];
+				$bookList = Book::searchByYear($year);
+
 			}
 
 
@@ -77,42 +83,39 @@
 
 			$directory = $bookItem['b_path_content'] . $numToms . '\\' . $numChapter . '\\';    // Папка с изображениями
 			$directory = str_replace('/', '\\', substr($directory, 1));
-			$allowed_types = array("jpg", "png", "gif");  //разрешеные типы изображений
-			$file_parts = array();
 			$result = '';
 
-			$ext = '';
-			$title = '';
 			$i = 0;
-			//пробуем открыть папку
-			$dir_handle = @opendir($directory) or die("Не удалось открыть: " . $directory);
-			while($file = readdir($dir_handle))    //поиск по файлам
-			{
-				if($file == "." || $file == "..") continue;  //пропустить ссылки на другие папки
-				$file_parts = explode(".", $file);          //разделить имя файла и поместить его в массив
-				$ext = strtolower(array_pop($file_parts));   //последний элеменет - это расширение
-				$path = '/' . str_replace('\\', '/', $directory . $file);
+			$bookList = scandir($directory);
+			$directory = str_replace('\\', '/', $directory);
+			$directory = '/'.$directory;
+			$bookList = array_slice($bookList, 2);
+			$ext = array();
+			$name = array();
 
-				if(in_array($ext, $allowed_types))
-				{
-					$result = $result . '
+			foreach($bookList as $item){
+				$item = explode('.', $item);
+				$ext[$i] = strtolower(array_pop($item));
+				$name[$i] = intval($item[0]);
+				$i++;
+			}
+			sort($name);
+			for($i = 0; $i < count($name); $i++){
+				$result = $result . '
 <div class="col-md-2">
 					<div class="card bg-secondary mb-4 box-shadow">
-						<a data-fancybox="gallery" href="' . $path . '">
+						<a data-fancybox="gallery" href="'.$directory.$name[$i].'.jpg">
 							<img
 									class="card-img-top"
 									data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
-									alt="' . $file . '" style="height: auto;  display: block;"
-									src="' . $path . '" data-holder-rendered="true">
+									alt="'.$name[$i].'.jpg" style="height: auto;  display: block;"
+									src="'.$directory.$name[$i].'.jpg" data-holder-rendered="true">
 						</a>
 					</div>
 				</div>
 				';
-				}
-
-
 			}
-			closedir($dir_handle);  //закрыть папку
+
 			print($result);
 			return true;
 		}

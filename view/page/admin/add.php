@@ -7,13 +7,6 @@
 
 	<div class="container add">
 		<form action="#" method="post" id="main_form" enctype="multipart/form-data">
-			<?php
-
-					echo'<pre>';
-					var_dump($res);
-					echo'</pre>';
-
-			?>
 			<h1>Добавление</h1>
 
 			<div class="row">

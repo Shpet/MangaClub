@@ -171,7 +171,7 @@
 					if(!$errors && $res)
 					{
 
-//						header('Location: /admin');
+						header('Location: /admin');
 					}
 
 
@@ -315,7 +315,7 @@
 				else if(isset($data['addChapter']))
 				{
 					$numTom = UploadFiles ::NumFolders($name);
-					$numChapter = UploadFiles ::NumFolders($name . '/Tom' . $numTom) + 1;
+					$numChapter = UploadFiles ::NumChapters($name . '/Tom' . $numTom) + 1;
 
 					$structure =
 						ROOT . '/view/content/' . strtolower(str_replace(' ', '_', $name)) . '/Tom' . $numTom . '/' .
@@ -354,7 +354,7 @@
 				else if($_FILES['content']['size'][0] > 0)
 				{
 					$numTom = UploadFiles ::NumFolders($name);
-					$numChapter = UploadFiles ::NumFolders($name . '/Tom' . $numTom);
+					$numChapter = UploadFiles ::NumChapters($name . '/Tom' . $numTom);
 
 					$structure =
 						ROOT . '/view/content/' . strtolower(str_replace(' ', '_', $name)) . '/Tom' . $numTom . '/' .

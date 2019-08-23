@@ -28,6 +28,7 @@
 			$sex = $user['sex'];
 			$birthday = $user['u_birthday'];
 			$description = $user['u_description'];
+			$u_path_avatar = $user['u_path_avatar'];
 			$checked = '';
 
 			$result = false;

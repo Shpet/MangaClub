@@ -47,6 +47,116 @@
 			return $booksList;
 		}
 
+		public static function searchByGenre($genre){
+			//подключение к бд
+			$db = Db ::getConnection();
+			$booksList = array();
+
+			// запрос к бд
+			$sql = "SELECT id_book, name_book, author, b_description, b_path_logo, name_genre
+										  FROM book
+								 		  JOIN book_genre ON book.id_book = book_genre.id_book_bg 
+ 										  JOIN genre on book_genre.id_genre_bg = genre.id_genre
+										  WHERE name_genre LIKE :genre ";
+
+			//запись результатов запроса
+			$result = $db->prepare($sql);
+			$genre = '%'.$genre.'%';
+			$result->bindParam(':genre', $genre, PDO::PARAM_STR);
+			$result->execute();
+			$i = 0;
+			while($row = $result -> fetch())
+			{
+				if($i > 0 && $row['id_book'] == $booksList[$i - 1]['id_book'])
+				{
+					$booksList[$i - 1]['name_genre'] = $booksList[$i - 1]['name_genre'] . ', ' . $row['name_genre'];
+					continue;
+				}
+				$booksList[$i]['id_book'] = $row['id_book'];
+				$booksList[$i]['name_book'] = $row['name_book'];
+				$booksList[$i]['author'] = $row['author'];
+				$booksList[$i]['b_description'] = $row['b_description'];
+				$booksList[$i]['b_path_logo'] = $row['b_path_logo'];
+				$booksList[$i]['name_genre'] = $row['name_genre'];
+
+				$i++;
+			}
+			return $booksList;
+		}
+
+		public static function searchByAuthor($author){
+			//подключение к бд
+			$db = Db ::getConnection();
+			$booksList = array();
+
+			// запрос к бд
+			$sql = "SELECT id_book, name_book, author, b_description, b_path_logo, name_genre
+										  FROM book
+								 		  JOIN book_genre ON book.id_book = book_genre.id_book_bg 
+ 										  JOIN genre on book_genre.id_genre_bg = genre.id_genre
+										  WHERE author LIKE :author ";
+
+			//запись результатов запроса
+			$result = $db->prepare($sql);
+			$author = '%'.$author.'%';
+			$result->bindParam(':author', $author, PDO::PARAM_STR);
+			$result->execute();
+			$i = 0;
+			while($row = $result -> fetch())
+			{
+				if($i > 0 && $row['id_book'] == $booksList[$i - 1]['id_book'])
+				{
+					$booksList[$i - 1]['name_genre'] = $booksList[$i - 1]['name_genre'] . ', ' . $row['name_genre'];
+					continue;
+				}
+				$booksList[$i]['id_book'] = $row['id_book'];
+				$booksList[$i]['name_book'] = $row['name_book'];
+				$booksList[$i]['author'] = $row['author'];
+				$booksList[$i]['b_description'] = $row['b_description'];
+				$booksList[$i]['b_path_logo'] = $row['b_path_logo'];
+				$booksList[$i]['name_genre'] = $row['name_genre'];
+
+				$i++;
+			}
+			return $booksList;
+		}
+
+		public static function searchByYear($year){
+			//подключение к бд
+			$db = Db ::getConnection();
+			$booksList = array();
+
+			// запрос к бд
+			$sql = "SELECT id_book, name_book, author, b_description, b_path_logo, name_genre
+										  FROM book
+								 		  JOIN book_genre ON book.id_book = book_genre.id_book_bg 
+ 										  JOIN genre on book_genre.id_genre_bg = genre.id_genre
+										  WHERE b_year LIKE :year ";
+
+			//запись результатов запроса
+			$result = $db->prepare($sql);
+			$result->bindParam(':year', $year, PDO::PARAM_INT);
+			$result->execute();
+			$i = 0;
+			while($row = $result -> fetch())
+			{
+				if($i > 0 && $row['id_book'] == $booksList[$i - 1]['id_book'])
+				{
+					$booksList[$i - 1]['name_genre'] = $booksList[$i - 1]['name_genre'] . ', ' . $row['name_genre'];
+					continue;
+				}
+				$booksList[$i]['id_book'] = $row['id_book'];
+				$booksList[$i]['name_book'] = $row['name_book'];
+				$booksList[$i]['author'] = $row['author'];
+				$booksList[$i]['b_description'] = $row['b_description'];
+				$booksList[$i]['b_path_logo'] = $row['b_path_logo'];
+				$booksList[$i]['name_genre'] = $row['name_genre'];
+
+				$i++;
+			}
+			return $booksList;
+		}
+
 
 
 

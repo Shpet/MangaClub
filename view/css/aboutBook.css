@@ -37,6 +37,8 @@ a{
 }
 .content .row .col-3 img{
     border-radius: .3em;
+    width: 300px;
+    height: 450px;
 }
 .content .row p{
     word-spacing: .3em;
