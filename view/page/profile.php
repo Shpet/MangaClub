@@ -82,9 +82,9 @@
 			</div>
 			<div class="row">
 				<ul class="buttList col-4">
-					<li><a class="btn btn-info w-100" href="reading">Читаю</a></li>
-					<li><a class="btn btn-info" href="alereadyRead">Прочитано</a></li>
-					<li><a class="btn btn-info" href="willRead">Буду читать</a></li>
+<!--					<li><a class="btn btn-info w-100" href="reading">Читаю</a></li>-->
+<!--					<li><a class="btn btn-info" href="alereadyRead">Прочитано</a></li>-->
+<!--					<li><a class="btn btn-info" href="willRead">Буду читать</a></li>-->
 					<li><a type="submit" name="edit" class="btn btn-dark" href="editProfile">Редактировать профиль</a></li>
 				</ul>
 			</div>
