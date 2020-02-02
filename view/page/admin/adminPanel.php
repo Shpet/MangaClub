@@ -13,6 +13,7 @@
 		<li><a href="admin/add" class="btn btn-success">Добавить</a></li>
 		<li><a href="admin/update" class="btn btn-light">Изменить</a></li>
 		<li><a href="admin/delete" class="btn btn-danger">Удалить</a></li>
+		<li><a href="admin/stats" class="btn btn-info">Статистика</a></li>
 	</ul>
 </div>
 

@@ -10,7 +10,8 @@
 	{
 
 		//SEARCH
-		public static function searchByName($name){
+		public static function searchByName($name)
+		{
 			//подключение к бд
 			$db = Db ::getConnection();
 			$booksList = array();
@@ -23,10 +24,10 @@
 										  WHERE name_book LIKE :name ";
 
 			//запись результатов запроса
-			$result = $db->prepare($sql);
-			$name = '%'.$name.'%';
-			$result->bindParam(':name', $name, PDO::PARAM_STR);
-			$result->execute();
+			$result = $db -> prepare($sql);
+			$name = '%' . $name . '%';
+			$result -> bindParam(':name', $name, PDO::PARAM_STR);
+			$result -> execute();
 			$i = 0;
 			while($row = $result -> fetch())
 			{
@@ -47,7 +48,8 @@
 			return $booksList;
 		}
 
-		public static function searchByGenre($genre){
+		public static function searchByGenre($genre)
+		{
 			//подключение к бд
 			$db = Db ::getConnection();
 			$booksList = array();
@@ -60,10 +62,10 @@
 										  WHERE name_genre LIKE :genre ";
 
 			//запись результатов запроса
-			$result = $db->prepare($sql);
-			$genre = '%'.$genre.'%';
-			$result->bindParam(':genre', $genre, PDO::PARAM_STR);
-			$result->execute();
+			$result = $db -> prepare($sql);
+			$genre = '%' . $genre . '%';
+			$result -> bindParam(':genre', $genre, PDO::PARAM_STR);
+			$result -> execute();
 			$i = 0;
 			while($row = $result -> fetch())
 			{
@@ -84,7 +86,8 @@
 			return $booksList;
 		}
 
-		public static function searchByAuthor($author){
+		public static function searchByAuthor($author)
+		{
 			//подключение к бд
 			$db = Db ::getConnection();
 			$booksList = array();
@@ -97,10 +100,10 @@
 										  WHERE author LIKE :author ";
 
 			//запись результатов запроса
-			$result = $db->prepare($sql);
-			$author = '%'.$author.'%';
-			$result->bindParam(':author', $author, PDO::PARAM_STR);
-			$result->execute();
+			$result = $db -> prepare($sql);
+			$author = '%' . $author . '%';
+			$result -> bindParam(':author', $author, PDO::PARAM_STR);
+			$result -> execute();
 			$i = 0;
 			while($row = $result -> fetch())
 			{
@@ -121,7 +124,8 @@
 			return $booksList;
 		}
 
-		public static function searchByYear($year){
+		public static function searchByYear($year)
+		{
 			//подключение к бд
 			$db = Db ::getConnection();
 			$booksList = array();
@@ -134,9 +138,9 @@
 										  WHERE b_year LIKE :year ";
 
 			//запись результатов запроса
-			$result = $db->prepare($sql);
-			$result->bindParam(':year', $year, PDO::PARAM_INT);
-			$result->execute();
+			$result = $db -> prepare($sql);
+			$result -> bindParam(':year', $year, PDO::PARAM_INT);
+			$result -> execute();
 			$i = 0;
 			while($row = $result -> fetch())
 			{
@@ -156,8 +160,6 @@
 			}
 			return $booksList;
 		}
-
-
 
 
 		//GET BOOKS
@@ -349,8 +351,38 @@
 		}
 
 
-
 		// ADMIN
+
+		public static function stats()
+		{
+			//подключение к бд
+			$db = Db ::getConnection();
+			$booksList = array();
+			$genre = array("Апокалиптика", "Боевые искусства", "Детектив", "Добуцу", "Драма", "Киберпанк", "Комедия", "Меха", "Мистика", "Романтика", "Фэнтези");
+			$i = 0;
+			// запрос к бд
+			foreach($genre as $item)
+			{
+				$sql = "SELECT name_genre, count(*) as countOfGenre
+										  FROM book_genre 
+ 										  JOIN genre on book_genre.id_genre_bg = genre.id_genre
+										  WHERE name_genre LIKE :genre";
+
+				//запись результатов запроса
+				$result = $db -> prepare($sql);
+				$result -> bindParam(':genre', $item, PDO::PARAM_STR);
+				$result -> execute();
+				while($row = $result -> fetch())
+				{
+					$booksList[$i]['name_genre'] = $row['name_genre'];
+					$booksList[$i]['countOfGenre'] = $row['countOfGenre'];
+
+				}
+				$i++;
+			}
+			return $booksList;
+		}
+
 		public static function deleteBookById($id)
 		{
 			$db = Db ::getConnection();
@@ -455,7 +487,6 @@
 
 			return $result -> execute();
 		}
-
 
 
 		// LIKE/DISLIKE

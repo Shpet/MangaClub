@@ -22,6 +22,7 @@
 
 				 "admin/update" => "Admin/AdminUpdate",
 				 "admin/update/(.+)" => "Admin/AdminUpdateByName/$1",
+				 'admin/stats' => 'Book/Stats',
 				 "update/([0-9]+)" => "Admin/Update/$1",
 				 "delete/([0-9]+)" => "Admin/Delete/$1",
 

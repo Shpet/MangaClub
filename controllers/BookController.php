@@ -9,48 +9,71 @@
 	class bookController
 	{
 
-		public function actionAdvancedSearch(){
+		public function actionAdvancedSearch()
+		{
 
 			$data = $_POST;
 			$name = '';
 
-			if(isset($data['search'])){
-				$Mname= $data['name'];
+			if(isset($data['search']))
+			{
+				$Mname = $data['name'];
 
-				$bookList = Book::searchByName($Mname);
+				$bookList = Book ::searchByName($Mname);
 			}
-			if(isset($data['searchName'])){
-				$name= $data['name'];
-				$bookList = Book::searchByName($name);
+			if(isset($data['searchName']))
+			{
+				$name = $data['name'];
+				$bookList = Book ::searchByName($name);
 			}
-			if(isset($data['searchGenre'])){
-				$genre= $data['genre'];
-				$bookList = Book::searchByGenre($genre);
+			if(isset($data['searchGenre']))
+			{
+				$genre = $data['genre'];
+				$bookList = Book ::searchByGenre($genre);
 			}
-			if(isset($data['searchAuthor'])){
-				$author= $data['author'];
-				$bookList = Book::searchByAuthor($author);
-
-			}
-			if(isset($data['searchYear'])){
-				$year= $data['year'];
-				$bookList = Book::searchByYear($year);
+			if(isset($data['searchAuthor']))
+			{
+				$author = $data['author'];
+				$bookList = Book ::searchByAuthor($author);
 
 			}
+			if(isset($data['searchYear']))
+			{
+				$year = $data['year'];
+				$bookList = Book ::searchByYear($year);
+
+			}
 
 
-
-			require_once (ROOT.'/view/page/advancedSearch.php');
-			return  true;
+			require_once(ROOT . '/view/page/advancedSearch.php');
+			return true;
 		}
+
 		public function actionNewBook()
 		{
 
 			$newBook = BOOk ::getNewBooks();
-			$countLikes = Book::countOfFullLikes();
-			$countDislikes = Book::countOfFullDislikes();
+			$countLikes = Book ::countOfFullLikes();
+			$countDislikes = Book ::countOfFullDislikes();
 
 			require_once(ROOT . '/view/page/newBook.php');
+
+			return true;
+		}
+
+		public function actionStats()
+		{
+
+			$stats = BOOk ::stats();
+			$i = 0;
+			$dataPoints = array();
+			while($i < count($stats))
+			{
+				$dataPoints[$i] = (array("label" => $stats[$i]['name_genre'], "y" => $stats[$i]['countOfGenre']));
+				$i++;
+			}
+
+			require_once(ROOT . '/view/page/stats.php');
 
 			return true;
 		}
@@ -88,28 +111,30 @@
 			$i = 0;
 			$bookList = scandir($directory);
 			$directory = str_replace('\\', '/', $directory);
-			$directory = '/'.$directory;
+			$directory = '/' . $directory;
 			$bookList = array_slice($bookList, 2);
 			$ext = array();
 			$name = array();
 
-			foreach($bookList as $item){
+			foreach($bookList as $item)
+			{
 				$item = explode('.', $item);
 				$ext[$i] = strtolower(array_pop($item));
 				$name[$i] = intval($item[0]);
 				$i++;
 			}
 			sort($name);
-			for($i = 0; $i < count($name); $i++){
+			for($i = 0; $i < count($name); $i++)
+			{
 				$result = $result . '
 <div class="col-md-2">
 					<div class="card bg-secondary mb-4 box-shadow">
-						<a data-fancybox="gallery" href="'.$directory.$name[$i].'.jpg">
+						<a data-fancybox="gallery" href="' . $directory . $name[$i] . '.jpg">
 							<img
 									class="card-img-top"
 									data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
-									alt="'.$name[$i].'.jpg" style="height: auto;  display: block;"
-									src="'.$directory.$name[$i].'.jpg" data-holder-rendered="true">
+									alt="' . $name[$i] . '.jpg" style="height: auto;  display: block;"
+									src="' . $directory . $name[$i] . '.jpg" data-holder-rendered="true">
 						</a>
 					</div>
 				</div>
@@ -138,8 +163,8 @@
 		{
 			$bookItem = Book ::getBookById($id);
 
-			$countLikes = Book::countOfLikes($id);
-			$countDislikes = Book::countOfDislikes($id);
+			$countLikes = Book ::countOfLikes($id);
+			$countDislikes = Book ::countOfDislikes($id);
 
 			$arts = array();
 
@@ -181,24 +206,28 @@
 				print false;
 				return true;
 			}
-			else{
+			else
+			{
 				$id_book = $_GET['id'];
-				$id_user = User::checkLogged();
+				$id_user = User ::checkLogged();
 
-				$active =!Book::isUserLike($id_book, $id_user);
-				if($active){
-					Book::incrementlike($id_book, $id_user);
+				$active = !Book ::isUserLike($id_book, $id_user);
+				if($active)
+				{
+					Book ::incrementlike($id_book, $id_user);
 
-					$activeDis =Book::isUserDislike($id_book, $id_user);
-					if($activeDis){
-						Book::decrementDislike($id_book, $id_user);
+					$activeDis = Book ::isUserDislike($id_book, $id_user);
+					if($activeDis)
+					{
+						Book ::decrementDislike($id_book, $id_user);
 					}
 				}
-				else{
-					Book::decrementlike($id_book, $id_user);
+				else
+				{
+					Book ::decrementlike($id_book, $id_user);
 				}
 
-				$res = Book::countOfLikes($id_book).' '. Book::countOfDislikes($id_book);
+				$res = Book ::countOfLikes($id_book) . ' ' . Book ::countOfDislikes($id_book);
 
 				print_r($res);
 				return true;
@@ -213,23 +242,27 @@
 				print false;
 				return true;
 			}
-			else{
+			else
+			{
 				$id_book = $_GET['id'];
-				$id_user = User::checkLogged();
+				$id_user = User ::checkLogged();
 
-				$active =!Book::isUserDislike($id_book, $id_user);
-				if($active){
-					Book::incrementdislike($id_book, $id_user);
+				$active = !Book ::isUserDislike($id_book, $id_user);
+				if($active)
+				{
+					Book ::incrementdislike($id_book, $id_user);
 
-					$activeLike =Book::isUserLike($id_book, $id_user);
-					if($activeLike){
-						Book::decrementLike($id_book, $id_user);
+					$activeLike = Book ::isUserLike($id_book, $id_user);
+					if($activeLike)
+					{
+						Book ::decrementLike($id_book, $id_user);
 					}
 				}
-				else{
-					Book::decrementdislike($id_book, $id_user);
+				else
+				{
+					Book ::decrementdislike($id_book, $id_user);
 				}
-				$res = Book::countOfDislikes($id_book).' '. Book::countOfLikes($id_book);
+				$res = Book ::countOfDislikes($id_book) . ' ' . Book ::countOfLikes($id_book);
 
 				print_r($res);
 				return true;
